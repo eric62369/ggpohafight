@@ -19,19 +19,17 @@ RaylibRenderer::~RaylibRenderer()
 
 void
 RaylibRenderer::Draw(GameState &gs, NonGameState &ngs) {
-    if (!WindowShouldClose()) {
-        BeginDrawing();
+    BeginDrawing();
 
-        ClearBackground(RAYWHITE);
+    ClearBackground(RAYWHITE);
 
-        DrawText(_status, 10, 10, 10, DARKGRAY);
-        DrawText(ngs.periodic.framenumber + " " + ngs.periodic.checksum, 10, 10, 10, DARKGRAY);
+    DrawText(_status, 10, 10, 10, DARKGRAY);
+    DrawText(ngs.periodic.framenumber + " " + ngs.periodic.checksum, 10, 25, 10, DARKGRAY);
 
-        DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
-        DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);
+    DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
+    DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);
 
-        EndDrawing();
-    }
+    EndDrawing();
 }
 
 void
