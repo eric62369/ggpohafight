@@ -1,117 +1,93 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Keyboard input
-*
-*   This example has been created using raylib 1.0 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Copyright (c) 2014 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-
-#include <algorithm>
+#include <windows.h>
 #include <stdio.h>
-#include <wchar.h>
-#include <chrono>
-#include <string.h>
-#include "raylib.h"
+#if defined(_DEBUG)
+#   include <crtdbg.h>
+#endif
 #include "hafight.h"
+#include "runner.h"
+#include "ggpo_perfmon.h"
 
-#include <stdlib.h>
 
-#define ARRAYSIZE(a) ((sizeof(a) / sizeof(*(a))) / static_cast<size_t>(!(sizeof(a) % sizeof(*(a)))))
-
-using namespace std::chrono;
-
-int main(int argc, char* argv[])
+void
+Syntax()
 {
-    if (argc != 2) {
-        printf("Needs 2 arguments\n");
+    MessageBox(NULL,
+        L"Syntax: vectorwar.exe <local port> <num players> ('local' | <remote ip>:<remote port>)*\n",
+        L"Could not start", MB_OK);
+}
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+    _In_opt_ HINSTANCE,
+    _In_ LPWSTR,
+    _In_ int)
+{
+    int offset = 1, local_player = 0;
+    wchar_t wide_ip_buffer[128];
+    unsigned int wide_ip_buffer_size = (unsigned int)ARRAYSIZE(wide_ip_buffer);
+
+    hInstance = hInstance;
+
+#if defined(_DEBUG)
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
+
+    if (__argc < 3) {
+        Syntax();
         return 1;
     }
-
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
-
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
-    unsigned short localport;
-    int num_players = 2;
-    GGPOPlayer players[GGPO_MAX_SPECTATORS + GGPO_MAX_PLAYERS];
-    if (strncmp(argv[1], "0", 1)) {
-        localport = 7000;
-
-        players[0].size = sizeof(GGPOPlayer);
-        players[0].player_num = 1;
-        players[0].type = GGPO_PLAYERTYPE_LOCAL;
-
-        players[1].size = sizeof(GGPOPlayer);
-        players[1].player_num = 2;
-        players[1].type = GGPO_PLAYERTYPE_REMOTE;
-        players[1].u.remote.port = 7001;
-        strncpy_s(players[1].u.remote.ip_address, 32, "127.0.0.1", 10);
-        // strncpy(players[1].u.remote.ip_address, argv[2], sizeof(players[1].u.remote.ip_address)); // TODO: do strncpy later
-
-
-        printf("%s\n", players[1].u.remote.ip_address);
-        printf("%d\n", players[1].u.remote.port);
+    unsigned short local_port = (unsigned short)_wtoi(__wargv[offset++]);
+    int num_players = _wtoi(__wargv[offset++]);
+    if (num_players < 0 || __argc < offset + num_players) {
+        Syntax();
+        return 1;
+    }
+    if (wcscmp(__wargv[offset], L"spectate") == 0) {
+        char host_ip[128];
+        unsigned short host_port;
+        if (swscanf_s(__wargv[offset + 1], L"%[^:]:%hu", wide_ip_buffer, wide_ip_buffer_size, &host_port) != 2) {
+            Syntax();
+            return 1;
+        }
+        wcstombs_s(nullptr, host_ip, ARRAYSIZE(host_ip), wide_ip_buffer, _TRUNCATE);
+        HAFight_InitSpectator(local_port, num_players, host_ip, host_port);
     }
     else {
-        localport = 7001;
+        GGPOPlayer players[GGPO_MAX_SPECTATORS + GGPO_MAX_PLAYERS];
 
-        players[0].size = sizeof(GGPOPlayer);
-        players[0].player_num = 2;
-        players[0].type = GGPO_PLAYERTYPE_REMOTE;
-        players[0].u.remote.port = 7000;
-        strncpy_s(players[0].u.remote.ip_address, 32, "127.0.0.1", 10);
+        int i;
+        for (i = 0; i < num_players; i++) {
+            const wchar_t* arg = __wargv[offset++];
 
-        players[1].size = sizeof(GGPOPlayer);
-        players[1].player_num = 1;
-        players[1].type = GGPO_PLAYERTYPE_LOCAL;
+            players[i].size = sizeof(players[i]);
+            players[i].player_num = i + 1;
+            if (!_wcsicmp(arg, L"local")) {
+                players[i].type = GGPO_PLAYERTYPE_LOCAL;
+                local_player = i;
+                continue;
+            }
 
-        printf("%s\n", players[0].u.remote.ip_address);
-        printf("%d\n", players[0].u.remote.port);
-        // printf("%s\n", players[0].u.remote.ip_address);
-        // printf("%d\n", localport);
-    }
-    HAFight_Init(localport, num_players, players, 0);
-
-    // Main game loop
-    int next, now;
-    next = (int) duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-    now = next;
-    while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
-        // Update
-        //----------------------------------------------------------------------------------
-
-        now = (int) duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-        HAFight_Idle(std::max(0, next - now - 1));
-
-        // printf("%d %d %d\n", now, next, next - now - 1);
-
-        if (now >= next) {
-            HAFight_RunFrame();
-            next = now + (1000 / 60);
+            players[i].type = GGPO_PLAYERTYPE_REMOTE;
+            if (swscanf_s(arg, L"%[^:]:%hd", wide_ip_buffer, wide_ip_buffer_size, &players[i].u.remote.port) != 2) {
+                Syntax();
+                return 1;
+            }
+            wcstombs_s(nullptr, players[i].u.remote.ip_address, ARRAYSIZE(players[i].u.remote.ip_address), wide_ip_buffer, _TRUNCATE);
+        }
+        // these are spectators...
+        int num_spectators = 0;
+        while (offset < __argc) {
+            players[i].type = GGPO_PLAYERTYPE_SPECTATOR;
+            if (swscanf_s(__wargv[offset++], L"%[^:]:%hd", wide_ip_buffer, wide_ip_buffer_size, &players[i].u.remote.port) != 2) {
+                Syntax();
+                return 1;
+            }
+            wcstombs_s(nullptr, players[i].u.remote.ip_address, ARRAYSIZE(players[i].u.remote.ip_address), wide_ip_buffer, _TRUNCATE);
+            i++;
+            num_spectators++;
         }
 
-        //----------------------------------------------------------------------------------
-
-        // Draw
-        //----------------------------------------------------------------------------------
-
-        //----------------------------------------------------------------------------------
+        HAFight_Init(local_port, num_players, players, num_spectators);
     }
-
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    HAFight_Exit();
-    //--------------------------------------------------------------------------------------
-
+    RunMainLoop();
     return 0;
 }
