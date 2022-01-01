@@ -1,11 +1,14 @@
-#include <windows.h>
+#include <Windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
 #include <math.h>
 #include <stdio.h>
-#include "gdi_renderer.h"
-#include "vectorwar.h"
-#include "ggpo_perfmon.h"
+#include "hafight.h"
+#include "gamestate.h"
+#include "nongamestate.h"
+#include "ggponet.h"
+#include "raylibrenderer.h"
+#include "inputreader.h"
 
 //#define SYNC_TEST    // test: turn on synctest
 #define MAX_PLAYERS     64
@@ -20,7 +23,6 @@ GGPOSession *ggpo = NULL;
  *
  *   http://en.wikipedia.org/wiki/Fletcher%27s_checksum
  */
-
 int
 fletcher32_checksum(short *data, size_t len)
 {
@@ -44,55 +46,62 @@ fletcher32_checksum(short *data, size_t len)
 }
 
 /*
- * vw_begin_game_callback --
+ * ha_begin_game_callback --
  *
  * The begin game callback.  We don't need to do anything special here,
  * so just return true.
  */
 bool __cdecl
-vw_begin_game_callback(const char *)
+ha_begin_game_callback(const char *)
 {
    return true;
 }
 
 /*
- * vw_on_event_callback --
+ * ha_on_event_callback --
  *
  * Notification from GGPO that something has happened.  Update the status
  * text at the bottom of the screen to notify the user.
  */
 bool __cdecl
-vw_on_event_callback(GGPOEvent *info)
+ha_on_event_callback(GGPOEvent *info)
 {
    int progress;
    switch (info->code) {
    case GGPO_EVENTCODE_CONNECTED_TO_PEER:
       ngs.SetConnectState(info->u.connected.player, Synchronizing);
+      renderer->SetStatusText("Event code connected to peer");
       break;
    case GGPO_EVENTCODE_SYNCHRONIZING_WITH_PEER:
       progress = 100 * info->u.synchronizing.count / info->u.synchronizing.total;
       ngs.UpdateConnectProgress(info->u.synchronizing.player, progress);
+      renderer->SetStatusText("Synchronizing...");
       break;
    case GGPO_EVENTCODE_SYNCHRONIZED_WITH_PEER:
       ngs.UpdateConnectProgress(info->u.synchronized.player, 100);
+      renderer->SetStatusText("Synchronize Complete");
       break;
    case GGPO_EVENTCODE_RUNNING:
       ngs.SetConnectState(Running);
-      renderer->SetStatusText("");
+      renderer->SetStatusText("Running");
       break;
    case GGPO_EVENTCODE_CONNECTION_INTERRUPTED:
       ngs.SetDisconnectTimeout(info->u.connection_interrupted.player,
                                timeGetTime(),
                                info->u.connection_interrupted.disconnect_timeout);
+      renderer->SetStatusText("Interrupted");
       break;
    case GGPO_EVENTCODE_CONNECTION_RESUMED:
       ngs.SetConnectState(info->u.connection_resumed.player, Running);
+      renderer->SetStatusText("Resumed connection");
       break;
    case GGPO_EVENTCODE_DISCONNECTED_FROM_PEER:
       ngs.SetConnectState(info->u.disconnected.player, Disconnected);
+      renderer->SetStatusText("Disconnect");
       break;
    case GGPO_EVENTCODE_TIMESYNC:
       Sleep(1000 * info->u.timesync.frames_ahead / 60);
+      renderer->SetStatusText("TimeSync");
       break;
    }
    return true;
@@ -100,44 +109,44 @@ vw_on_event_callback(GGPOEvent *info)
 
 
 /*
- * vw_advance_frame_callback --
+ * ha_advance_frame_callback --
  *
  * Notification from GGPO we should step foward exactly 1 frame
  * during a rollback.
  */
 bool __cdecl
-vw_advance_frame_callback(int)
+ha_advance_frame_callback(int)
 {
-   int inputs[MAX_SHIPS] = { 0 };
+   int inputs[MAX_FIGHTERS] = { 0 };
    int disconnect_flags;
 
    // Make sure we fetch new inputs from GGPO and use those to update
    // the game state instead of reading from the keyboard.
-   ggpo_synchronize_input(ggpo, (void *)inputs, sizeof(int) * MAX_SHIPS, &disconnect_flags);
-   VectorWar_AdvanceFrame(inputs, disconnect_flags);
+   ggpo_synchronize_input(ggpo, (void *)inputs, sizeof(int) * MAX_FIGHTERS, &disconnect_flags);
+   HAFight_AdvanceFrame(inputs, disconnect_flags);
    return true;
 }
 
 /*
- * vw_load_game_state_callback --
+ * ha_load_game_state_callback --
  *
  * Makes our current state match the state passed in by GGPO.
  */
 bool __cdecl
-vw_load_game_state_callback(unsigned char *buffer, int len)
+ha_load_game_state_callback(unsigned char *buffer, int len)
 {
    memcpy(&gs, buffer, len);
    return true;
 }
 
 /*
- * vw_save_game_state_callback --
+ * ha_save_game_state_callback --
  *
  * Save the current state to a buffer and return it to GGPO via the
  * buffer and len parameters.
  */
 bool __cdecl
-vw_save_game_state_callback(unsigned char **buffer, int *len, int *checksum, int)
+ha_save_game_state_callback(unsigned char **buffer, int *len, int *checksum, int)
 {
    *len = sizeof(gs);
    *buffer = (unsigned char *)malloc(*len);
@@ -150,37 +159,32 @@ vw_save_game_state_callback(unsigned char **buffer, int *len, int *checksum, int
 }
 
 /*
- * vw_log_game_state --
+ * ha_log_game_state --
  *
  * Log the gamestate.  Used by the synctest debugging tool.
  */
 bool __cdecl
-vw_log_game_state(char *filename, unsigned char *buffer, int)
+ha_log_game_state(char *filename, unsigned char *buffer, int)
 {
    FILE* fp = nullptr;
    fopen_s(&fp, filename, "w");
+   printf("%s\n", filename);
    if (fp) {
       GameState *gamestate = (GameState *)buffer;
       fprintf(fp, "GameState object.\n");
-      fprintf(fp, "  bounds: %d,%d x %d,%d.\n", gamestate->_bounds.left, gamestate->_bounds.top,
-              gamestate->_bounds.right, gamestate->_bounds.bottom);
-      fprintf(fp, "  num_ships: %d.\n", gamestate->_num_ships);
-      for (int i = 0; i < gamestate->_num_ships; i++) {
-         Ship *ship = gamestate->_ships + i;
-         fprintf(fp, "  ship %d position:  %.4f, %.4f\n", i, ship->position.x, ship->position.y);
-         fprintf(fp, "  ship %d velocity:  %.4f, %.4f\n", i, ship->velocity.dx, ship->velocity.dy);
-         fprintf(fp, "  ship %d radius:    %d.\n", i, ship->radius);
-         fprintf(fp, "  ship %d heading:   %d.\n", i, ship->heading);
-         fprintf(fp, "  ship %d health:    %d.\n", i, ship->health);
-         fprintf(fp, "  ship %d speed:     %d.\n", i, ship->speed);
-         fprintf(fp, "  ship %d cooldown:  %d.\n", i, ship->cooldown);
-         fprintf(fp, "  ship %d score:     %d.\n", i, ship->score);
-         for (int j = 0; j < MAX_BULLETS; j++) {
-            Bullet *bullet = ship->bullets + j;
-            fprintf(fp, "  ship %d bullet %d: %.2f %.2f -> %.2f %.2f.\n", i, j,
-                    bullet->position.x, bullet->position.y,
-                    bullet->velocity.dx, bullet->velocity.dy);
-         }
+    //   fprintf(fp, "  bounds: %d,%d x %d,%d.\n", gamestate->_bounds.left, gamestate->_bounds.top,
+    //           gamestate->_bounds.right, gamestate->_bounds.bottom);
+      fprintf(fp, "  num_fighters: %d.\n", gamestate->_num_fighters);
+      for (int i = 0; i < gamestate->_num_fighters; i++) {
+         Fighter *fighter = gamestate->_fighters + i;
+         fprintf(fp, "  fighter %d position:  %.4f, %.4f\n", i, fighter->position.x, fighter->position.y);
+         fprintf(fp, "  fighter %d velocity:  %.4f, %.4f\n", i, fighter->velocity.dx, fighter->velocity.dy);
+         fprintf(fp, "  fighter %d radius:    %d.\n", i, fighter->radius);
+         fprintf(fp, "  fighter %d heading:   %d.\n", i, fighter->heading);
+         fprintf(fp, "  fighter %d health:    %d.\n", i, fighter->health);
+         fprintf(fp, "  fighter %d speed:     %d.\n", i, fighter->speed);
+         fprintf(fp, "  fighter %d cooldown:  %d.\n", i, fighter->cooldown);
+         fprintf(fp, "  fighter %d score:     %d.\n", i, fighter->score);
       }
       fclose(fp);
    }
@@ -188,47 +192,46 @@ vw_log_game_state(char *filename, unsigned char *buffer, int)
 }
 
 /*
- * vw_free_buffer --
+ * ha_free_buffer --
  *
- * Free a save state buffer previously returned in vw_save_game_state_callback.
+ * Free a save state buffer previously returned in ha_save_game_state_callback.
  */
 void __cdecl 
-vw_free_buffer(void *buffer)
+ha_free_buffer(void *buffer)
 {
    free(buffer);
 }
 
-
 /*
- * VectorWar_Init --
+ * HAFight_Init --
  *
- * Initialize the vector war game.  This initializes the game state and
+ * Initialize the fight game.  This initializes the game state and
  * the video renderer and creates a new network session.
  */
 void
-VectorWar_Init(HWND hwnd, unsigned short localport, int num_players, GGPOPlayer *players, int num_spectators)
+HAFight_Init(unsigned short localport, int num_players, GGPOPlayer *players, int num_spectators)
 {
    GGPOErrorCode result;
-   renderer = new GDIRenderer(hwnd);
+   renderer = new RaylibRenderer();
 
    // Initialize the game state
-   gs.Init(hwnd, num_players);
+   gs.Init(num_players);
    ngs.num_players = num_players;
 
    // Fill in a ggpo callbacks structure to pass to start_session.
    GGPOSessionCallbacks cb = { 0 };
-   cb.begin_game      = vw_begin_game_callback;
-   cb.advance_frame	 = vw_advance_frame_callback;
-   cb.load_game_state = vw_load_game_state_callback;
-   cb.save_game_state = vw_save_game_state_callback;
-   cb.free_buffer     = vw_free_buffer;
-   cb.on_event        = vw_on_event_callback;
-   cb.log_game_state  = vw_log_game_state;
+   cb.begin_game      = ha_begin_game_callback;
+   cb.advance_frame	 = ha_advance_frame_callback;
+   cb.load_game_state = ha_load_game_state_callback;
+   cb.save_game_state = ha_save_game_state_callback;
+   cb.free_buffer     = ha_free_buffer;
+   cb.on_event        = ha_on_event_callback;
+   cb.log_game_state  = ha_log_game_state;
 
 #if defined(SYNC_TEST)
-   result = ggpo_start_synctest(&ggpo, &cb, "vectorwar", num_players, sizeof(int), 1);
+   result = ggpo_start_synctest(&ggpo, &cb, "hafight", num_players, sizeof(int), 1);
 #else
-   result = ggpo_start_session(&ggpo, &cb, "vectorwar", num_players, sizeof(int), localport);
+   result = ggpo_start_session(&ggpo, &cb, "hafight", num_players, sizeof(int), localport);
 #endif
 
    // automatically disconnect clients after 3000 ms and start our count-down timer
@@ -240,7 +243,9 @@ VectorWar_Init(HWND hwnd, unsigned short localport, int num_players, GGPOPlayer 
    int i;
    for (i = 0; i < num_players + num_spectators; i++) {
       GGPOPlayerHandle handle;
+      printf("\n%d\n", i);
       result = ggpo_add_player(ggpo, players + i, &handle);
+      printf("\n%d %d %d\n", result, i, num_players + num_spectators);
       ngs.players[i].handle = handle;
       ngs.players[i].type = players[i].type;
       if (players[i].type == GGPO_PLAYERTYPE_LOCAL) {
@@ -253,51 +258,48 @@ VectorWar_Init(HWND hwnd, unsigned short localport, int num_players, GGPOPlayer 
       }
    }
 
-   ggpoutil_perfmon_init(hwnd);
    renderer->SetStatusText("Connecting to peers.");
 }
 
 /*
- * VectorWar_InitSpectator --
+ * HAFight_InitSpectator --
  *
  * Create a new spectator session
  */
 void
-VectorWar_InitSpectator(HWND hwnd, unsigned short localport, int num_players, char *host_ip, unsigned short host_port)
+HAFight_InitSpectator(unsigned short localport, int num_players, char *host_ip, unsigned short host_port)
 {
    GGPOErrorCode result;
-   renderer = new GDIRenderer(hwnd);
+   renderer = new RaylibRenderer();
 
    // Initialize the game state
-   gs.Init(hwnd, num_players);
+   gs.Init(num_players);
    ngs.num_players = num_players;
 
    // Fill in a ggpo callbacks structure to pass to start_session.
    GGPOSessionCallbacks cb = { 0 };
-   cb.begin_game      = vw_begin_game_callback;
-   cb.advance_frame	  = vw_advance_frame_callback;
-   cb.load_game_state = vw_load_game_state_callback;
-   cb.save_game_state = vw_save_game_state_callback;
-   cb.free_buffer     = vw_free_buffer;
-   cb.on_event        = vw_on_event_callback;
-   cb.log_game_state  = vw_log_game_state;
+   cb.begin_game      = ha_begin_game_callback;
+   cb.advance_frame	  = ha_advance_frame_callback;
+   cb.load_game_state = ha_load_game_state_callback;
+   cb.save_game_state = ha_save_game_state_callback;
+   cb.free_buffer     = ha_free_buffer;
+   cb.on_event        = ha_on_event_callback;
+   cb.log_game_state  = ha_log_game_state;
 
-   result = ggpo_start_spectating(&ggpo, &cb, "vectorwar", num_players, sizeof(int), localport, host_ip, host_port);
-
-   ggpoutil_perfmon_init(hwnd);
+   result = ggpo_start_spectating(&ggpo, &cb, "hafight", num_players, sizeof(int), localport, host_ip, host_port);
 
    renderer->SetStatusText("Starting new spectator session");
 }
 
 
 /*
- * VectorWar_DisconnectPlayer --
+ * HAFight_DisconnectPlayer --
  *
  * Disconnects a player from this session.
  */
 
 void
-VectorWar_DisconnectPlayer(int player)
+HAFight_DisconnectPlayer(int player)
 {
    if (player < ngs.num_players) {
       char logbuf[128];
@@ -313,12 +315,12 @@ VectorWar_DisconnectPlayer(int player)
 
 
 /*
- * VectorWar_DrawCurrentFrame --
+ * HAFight_DrawCurrentFrame --
  *
  * Draws the current frame without modifying the game state.
  */
 void
-VectorWar_DrawCurrentFrame()
+HAFight_DrawCurrentFrame()
 {
    if (renderer != nullptr) {
       renderer->Draw(gs, ngs);
@@ -326,12 +328,12 @@ VectorWar_DrawCurrentFrame()
 }
 
 /*
- * VectorWar_AdvanceFrame --
+ * HAFight_AdvanceFrame --
  *
  * Advances the game state by exactly 1 frame using the inputs specified
  * for player 1 and player 2.
  */
-void VectorWar_AdvanceFrame(int inputs[], int disconnect_flags)
+void HAFight_AdvanceFrame(int inputs[], int disconnect_flags)
 {
    gs.Update(inputs, disconnect_flags);
 
@@ -354,58 +356,22 @@ void VectorWar_AdvanceFrame(int inputs[], int disconnect_flags)
          handles[count++] = ngs.players[i].handle;
       }
    }
-   ggpoutil_perfmon_update(ggpo, handles, count);
-}
-
-
-/*
- * ReadInputs --
- *
- * Read the inputs for player 1 from the keyboard.  We never have to
- * worry about player 2.  GGPO will handle remapping his inputs 
- * transparently.
- */
-int
-ReadInputs(HWND hwnd)
-{
-   static const struct {
-      int      key;
-      int      input;
-   } inputtable[] = {
-      { VK_UP,       INPUT_THRUST },
-      { VK_DOWN,     INPUT_BREAK },
-      { VK_LEFT,     INPUT_ROTATE_LEFT },
-      { VK_RIGHT,    INPUT_ROTATE_RIGHT },
-      { 'D',         INPUT_FIRE },
-      { 'S',         INPUT_BOMB },
-   };
-   int i, inputs = 0;
-
-   if (GetForegroundWindow() == hwnd) {
-      for (i = 0; i < sizeof(inputtable) / sizeof(inputtable[0]); i++) {
-         if (GetAsyncKeyState(inputtable[i].key)) {
-            inputs |= inputtable[i].input;
-         }
-      }
-   }
-   
-   return inputs;
 }
 
 /*
- * VectorWar_RunFrame --
+ * HAFight_RunFrame --
  *
  * Run a single frame of the game.
  */
 void
-VectorWar_RunFrame(HWND hwnd)
+HAFight_RunFrame()
 {
   GGPOErrorCode result = GGPO_OK;
   int disconnect_flags;
-  int inputs[MAX_SHIPS] = { 0 };
+  int inputs[MAX_FIGHTERS] = { 0 };
 
   if (ngs.local_player_handle != GGPO_INVALID_HANDLE) {
-     int input = ReadInputs(hwnd);
+     int input = ReadInputs();
 #if defined(SYNC_TEST)
      input = rand(); // test: use random inputs to demonstrate sync testing
 #endif
@@ -416,30 +382,30 @@ VectorWar_RunFrame(HWND hwnd)
    // ggpo will modify the input list with the correct inputs to use and
    // return 1.
   if (GGPO_SUCCEEDED(result)) {
-     result = ggpo_synchronize_input(ggpo, (void *)inputs, sizeof(int) * MAX_SHIPS, &disconnect_flags);
+     result = ggpo_synchronize_input(ggpo, (void *)inputs, sizeof(int) * MAX_FIGHTERS, &disconnect_flags);
      if (GGPO_SUCCEEDED(result)) {
          // inputs[0] and inputs[1] contain the inputs for p1 and p2.  Advance
          // the game by 1 frame using those inputs.
-         VectorWar_AdvanceFrame(inputs, disconnect_flags);
+         HAFight_AdvanceFrame(inputs, disconnect_flags);
      }
   }
-  VectorWar_DrawCurrentFrame();
+  HAFight_DrawCurrentFrame();
 }
 
 /*
- * VectorWar_Idle --
+ * HAFight_Idle --
  *
  * Spend our idle time in ggpo so it can use whatever time we have left over
  * for its internal bookkeeping.
  */
 void
-VectorWar_Idle(int time)
+HAFight_Idle(int time)
 {
    ggpo_idle(ggpo, time);
 }
 
 void
-VectorWar_Exit()
+HAFight_Exit()
 {
    memset(&gs, 0, sizeof(gs));
    memset(&ngs, 0, sizeof(ngs));

@@ -3,7 +3,7 @@
 #if defined(_DEBUG)
 #   include <crtdbg.h>
 #endif
-#include "vectorwar.h"
+#include "hafight.h"
 #include "ggpo_perfmon.h"
 
 LRESULT CALLBACK
@@ -19,14 +19,14 @@ MainWindowProc(HWND hwnd,
       if (wParam == 'P') {
          ggpoutil_perfmon_toggle();
       } else if (wParam == VK_ESCAPE) {
-         VectorWar_Exit();
+         HAFight_Exit();
 		 PostQuitMessage(0);
       } else if (wParam >= VK_F1 && wParam <= VK_F12) {
-         VectorWar_DisconnectPlayer((int)(wParam - VK_F1));
+         HAFight_DisconnectPlayer((int)(wParam - VK_F1));
       }
       return 0;
    case WM_PAINT:
-      VectorWar_DrawCurrentFrame();
+      HAFight_DrawCurrentFrame();
       ValidateRect(hwnd, NULL);
       return 0;
    case WM_CLOSE:
@@ -63,7 +63,7 @@ CreateMainWindow(HINSTANCE hInstance)
 }
 
 void
-RunMainLoop(HWND hwnd)
+RunMainLoop()
 {
    MSG msg = { 0 };
    int start, next, now;
@@ -78,9 +78,9 @@ RunMainLoop(HWND hwnd)
          }
       }
       now = timeGetTime();
-      VectorWar_Idle(max(0, next - now - 1));
+      HAFight_Idle(max(0, next - now - 1));
       if (now >= next) {
-         VectorWar_RunFrame(hwnd);
+         HAFight_RunFrame();
          next = now + (1000 / 60);
       }
    }
@@ -90,7 +90,7 @@ void
 Syntax()
 {
    MessageBox(NULL, 
-              L"Syntax: vectorwar.exe <local port> <num players> ('local' | <remote ip>:<remote port>)*\n",
+              L"Syntax: HAFight.exe <local port> <num players> ('local' | <remote ip>:<remote port>)*\n",
               L"Could not start", MB_OK);
 }
 
@@ -135,7 +135,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          return 1;
       }
       wcstombs_s(nullptr, host_ip, ARRAYSIZE(host_ip), wide_ip_buffer, _TRUNCATE);
-      VectorWar_InitSpectator(hwnd, local_port, num_players, host_ip, host_port);
+      HAFight_InitSpectator(local_port, num_players, host_ip, host_port);
    } else {
       GGPOPlayer players[GGPO_MAX_SPECTATORS + GGPO_MAX_PLAYERS];
 
@@ -175,10 +175,10 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
          ::SetWindowPos(hwnd, NULL, window_offsets[local_player].x, window_offsets[local_player].y, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
       }
 
-      VectorWar_Init(hwnd, local_port, num_players, players, num_spectators);
+      HAFight_Init(local_port, num_players, players, num_spectators);
    }
-   RunMainLoop(hwnd);
-   VectorWar_Exit();
+   RunMainLoop();
+   HAFight_Exit();
    WSACleanup();
    DestroyWindow(hwnd);
    return 0;

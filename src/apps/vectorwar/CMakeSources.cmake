@@ -1,20 +1,22 @@
 set(GGPO_EXAMPLES_VECTORWAR_INC_NOFILTER
 	"gamestate.h"
-	"gdi_renderer.h"
 	"ggpo_perfmon.h"
 	"nongamestate.h"
 	"renderer.h"
 	"Resource.h"
 	"targetver.h"
-	"vectorwar.h"
+	"hafight.h"
+	"inputreader.h"
+	"raylibrenderer.h"
 )
 
 set(GGPO_EXAMPLES_VECTORWAR_SRC_NOFILTER
 	"gamestate.cpp"
-	"gdi_renderer.cpp"
 	"ggpo_perfmon.cpp"
 	"main.cpp"
-	"vectorwar.cpp"
+	"hafight.cpp"
+	"inputreader.cpp"
+	"raylibrenderer.cpp"
 )
 
 set(GGPO_EXAMPLES_VECTORWAR_WIN32RES

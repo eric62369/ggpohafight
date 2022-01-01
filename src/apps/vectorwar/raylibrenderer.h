@@ -1,4 +1,3 @@
-#pragma once
 #ifndef _RAYLIB_RENDERER_H_
 #define _RAYLIB_RENDERER_H_
 
@@ -13,18 +12,18 @@
 
 class RaylibRenderer : public Renderer {
 public:
-	RaylibRenderer();
-	~RaylibRenderer();
+   RaylibRenderer();
+   ~RaylibRenderer();
 
-	virtual void Draw(GameState& gs, NonGameState& ngs);
-	virtual void SetStatusText(const char* text);
+   virtual void Draw(GameState &gs, NonGameState &ngs);
+   virtual void SetStatusText(const char *text);
 
-	// protected:
-	//    void RenderChecksum(int y, NonGameState::ChecksumInfo &info);
-	//    void DrawFighter(int which, GameState &gamestate);
-	//    void DrawConnectState(Fighter &fighter, PlayerConnectionInfo &info);
+// protected:
+//    void RenderChecksum(int y, NonGameState::ChecksumInfo &info);
+//    void DrawFighter(int which, GameState &gamestate);
+//    void DrawConnectState(Fighter &fighter, PlayerConnectionInfo &info);
 
-	char           _status[1024];
+   char           _status[1024];
 };
 
 #endif
