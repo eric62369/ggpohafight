@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\bitvector.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\game_input.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\input_queue.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\log.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\main.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\poll.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\sync.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\timesync.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\platform_windows.cpp">
+      <Filter> </Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\network\udp.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\network\udp_proto.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\p2p.cpp">
+      <Filter>Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\spectator.cpp">
+      <Filter>Backends</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\synctest.cpp">
+      <Filter>Backends</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\bitvector.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\game_input.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\input_queue.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\log.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\poll.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\ring_buffer.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\sync.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\timesync.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\types.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\zconf.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\zlib.h">
+      <Filter> </Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\network\udp.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\network\udp_msg.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\network\udp_proto.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\backend.h">
+      <Filter>Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\p2p.h">
+      <Filter>Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\spectator.h">
+      <Filter>Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\lib\ggpo\backends\synctest.h">
+      <Filter>Backends</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\include\ggponet.h">
+      <Filter>Public</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include=" ">
+      <UniqueIdentifier>{0AB2DF47-AA50-3EEC-9A5B-E182D9BD1ABB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Backends">
+      <UniqueIdentifier>{4DD01106-9610-3F0B-8A49-27F914C7ED1E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{6C57C5A3-B9BF-364B-ACCF-615F497D268B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Public">
+      <UniqueIdentifier>{B15C8428-5FF4-329E-9F17-0EFE8BBF8740}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
