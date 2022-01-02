@@ -1,9 +1,2 @@
-﻿  Building Custom Rule C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/src/apps/hafight/CMakeLists.txt
-  runner.cpp
-  gamestate.cpp
-  ggpo_perfmon.cpp
-  main.cpp
-  hafight.cpp
-  inputreader.cpp
-  raylibrenderer.cpp
+﻿  runner.cpp
   HAFight.vcxproj -> C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\bin\x64\Debug\HAFight.exe
