@@ -18,18 +18,18 @@ endif()
 
 # What do we want to build?
 option(GGPO_BUILD_SDK "Enable the build of the GGPO SDK" ON)
-option(GGPO_BUILD_VECTORWAR "Enable the build of the Vector War example app" ON)
+option(GGPO_BUILD_HAFIGHT "Enable the build of the HAFIGHT app" ON)
 option(BUILD_SHARED_LIBS "Enable the build of shared libraries (.dll/.so) instead of static ones (.lib/.a)" ON)
 
 if(GGPO_BUILD_SDK)
 	add_subdirectory(src)
 endif()
 
-if(GGPO_BUILD_VECTORWAR)
-	# Vector War is Windows only.
+if(GGPO_BUILD_HAFIGHT)
+	# HAFIGHT is Windows only.
 	if(WIN32)
-		add_subdirectory(src/apps/vectorwar)
+		add_subdirectory(src/apps/hafight)
 	else()
-		message(WARNING "The Vector War app only supports Windows, skipping...")
+		message(WARNING "The HAFIGHT app only supports Windows, skipping...")
 	endif()
 endif()

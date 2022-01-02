@@ -290,11 +290,11 @@ FETCHCONTENT_UPDATES_DISCONNECTED_RAYLIB:BOOL=OFF
 //Value Computed by CMake
 GGPO_BINARY_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019
 
+//Enable the build of the HAFIGHT app
+GGPO_BUILD_HAFIGHT:BOOL=ON
+
 //Enable the build of the GGPO SDK
 GGPO_BUILD_SDK:BOOL=ON
-
-//Enable the build of the Vector War example app
-GGPO_BUILD_VECTORWAR:BOOL=ON
 
 //Value Computed by CMake
 GGPO_IS_TOP_LEVEL:STATIC=ON
@@ -360,13 +360,13 @@ USE_MSVC_RUNTIME_LIBRARY_DLL:BOOL=ON
 WITH_PIC:BOOL=OFF
 
 //Value Computed by CMake
-example_BINARY_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/vectorwar
+example_BINARY_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/hafight
 
 //Value Computed by CMake
 example_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-example_SOURCE_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/src/apps/vectorwar
+example_SOURCE_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/src/apps/hafight
 
 //Value Computed by CMake
 raylib_BINARY_DIR:STATIC=C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/_deps/raylib-build/raylib

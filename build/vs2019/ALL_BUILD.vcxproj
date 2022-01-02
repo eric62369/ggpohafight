@@ -108,9 +108,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{B2FAD855-6705-3E78-8803-5F438F18BC38}</Project>
       <Name>GGPO</Name>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\src\apps\vectorwar\VectorWar.vcxproj">
-      <Project>{C0B147EB-DD25-3323-998E-8EF1A140E445}</Project>
-      <Name>VectorWar</Name>
+    <ProjectReference Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\src\apps\hafight\HAFight.vcxproj">
+      <Project>{22799F98-451A-369A-8217-BEB2BA39506E}</Project>
+      <Name>HAFight</Name>
     </ProjectReference>
     <ProjectReference Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\_deps\raylib-build\raylib\external\glfw\src\glfw.vcxproj">
       <Project>{322F4F6A-866E-3837-9569-F82A6F875979}</Project>
