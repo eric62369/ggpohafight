@@ -25,8 +25,11 @@ RaylibRenderer::Draw(GameState &gs, NonGameState &ngs) {
     ClearBackground(RAYWHITE);
 
     DrawText(_status, 10, 10, 10, DARKGRAY);
+    
     printf("%d %d\n", ngs.periodic.framenumber, ngs.periodic.checksum);
+    printf("%f\n", gs._fighters[0].position.x);
 
+    
     DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
     DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);
 
