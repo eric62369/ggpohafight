@@ -22,8 +22,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     _In_ int)
 {
     int offset = 1, local_player = 0;
+    WSADATA wd = { 0 };
     wchar_t wide_ip_buffer[128];
     unsigned int wide_ip_buffer_size = (unsigned int)ARRAYSIZE(wide_ip_buffer);
+
+    WSAStartup(MAKEWORD(2, 2), &wd);
 
     hInstance = hInstance;
 
@@ -89,5 +92,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         HAFight_Init(local_port, num_players, players, num_spectators);
     }
     RunMainLoop();
+    WSACleanup();
     return 0;
 }

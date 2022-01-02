@@ -15,8 +15,8 @@
 #define FIGHTER_RADIUS            15
 #define FIGHTER_WIDTH              8
 #define FIGHTER_TUCK               3
-#define FIGHTER_THRUST             1
-#define FIGHTER_MAX_THRUST         1
+#define FIGHTER_THRUST             5
+#define FIGHTER_MAX_THRUST         5
 #define FIGHTER_BREAK_SPEED        0.6
 #define BULLET_SPEED            5
 #define MAX_BULLETS             30

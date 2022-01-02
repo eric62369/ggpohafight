@@ -17,9 +17,9 @@ ReadInputs()
       int      input;
    } inputtable[] = {
       { KEY_W,       INPUT_THRUST },
-      { KEY_D,     INPUT_BREAK },
+      { KEY_S,     INPUT_BREAK },
       { KEY_A,     INPUT_ROTATE_LEFT },
-      { KEY_S,    INPUT_ROTATE_RIGHT },
+      { KEY_D,    INPUT_ROTATE_RIGHT },
       { KEY_J,         INPUT_FIRE },
       { KEY_K,         INPUT_BOMB },
    };

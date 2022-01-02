@@ -1,6 +1,7 @@
 #include "raylibrenderer.h"
 #include "raylib.h"
 #include <string.h>
+#include <stdio.h>
 
 RaylibRenderer::RaylibRenderer()
 {
@@ -24,7 +25,7 @@ RaylibRenderer::Draw(GameState &gs, NonGameState &ngs) {
     ClearBackground(RAYWHITE);
 
     DrawText(_status, 10, 10, 10, DARKGRAY);
-    DrawText(ngs.periodic.framenumber + " " + ngs.periodic.checksum, 10, 25, 10, DARKGRAY);
+    printf("%d %d\n", ngs.periodic.framenumber, ngs.periodic.checksum);
 
     DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
     DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);

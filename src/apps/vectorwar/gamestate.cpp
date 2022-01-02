@@ -37,22 +37,22 @@ void GameState::GetFighterAI(int i, double *heading, double *thrust, int *fire)
 
 void GameState::ParseFighterInputs(int inputs, int i, double *heading, double *thrust, int *fire)
 {
-   Fighter *fighter = _fighters + i;
+   // Fighter *fighter = _fighters + i;
 
    ggpo_log(ggpo, "parsing fighter %d inputs: %d.\n", i, inputs);
 
    if (inputs & INPUT_ROTATE_RIGHT) {
-      *heading = (fighter->heading + ROTATE_INCREMENT) % 360;
+      *heading = FIGHTER_THRUST;
    } else if (inputs & INPUT_ROTATE_LEFT) {
-      *heading = (fighter->heading - ROTATE_INCREMENT + 360) % 360;
+      *heading = -FIGHTER_THRUST;
    } else {
-      *heading = fighter->heading;
+      *heading = 0;
    }
 
    if (inputs & INPUT_THRUST) {
-      *thrust = FIGHTER_THRUST;
-   } else if (inputs & INPUT_BREAK) {
       *thrust = -FIGHTER_THRUST;
+   } else if (inputs & INPUT_BREAK) {
+      *thrust = FIGHTER_THRUST;
    } else {
       *thrust = 0;
    }
@@ -65,21 +65,8 @@ void GameState::MoveFighter(int which, double x, double y)
    
    ggpo_log(ggpo, "calculation of new fighter coordinates: (thrust:%.4f heading:%.4f).\n", x, y);
 
-   fighter->heading = (int)x;
-
-   printf("%f %f\n", x, y);
-
-   if (y) {
-      double dx = x;
-      double dy = y;
-
-      fighter->velocity.dx += dx;
-      fighter->velocity.dy += dy;
-   }
-   ggpo_log(ggpo, "new fighter velocity: (dx:%.4f dy:%2.f).\n", fighter->velocity.dx, fighter->velocity.dy);
-
-   fighter->position.x += fighter->velocity.dx;
-   fighter->position.y += fighter->velocity.dy;
+   fighter->position.x += x;
+   fighter->position.y += y;
    ggpo_log(ggpo, "new fighter position: (dx:%.4f dy:%2.f).\n", fighter->position.x, fighter->position.y);
 }
 
