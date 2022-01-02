@@ -4,3 +4,4 @@ bin
 CMakeFiles
 lib
 x64
+src/apps/vectorwar/VectorWar.dir/Debug/
