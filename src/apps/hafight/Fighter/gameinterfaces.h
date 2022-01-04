@@ -8,11 +8,19 @@
 namespace Player {
     class IFighter {
     public:
-        virtual ~IFighter() {
+        IFighter(Fighter* _gameStateData) {
             _state = new StandState();
+            _gameStateData->position.x = 100;
+            _gameStateData->position.y = 100;
         }
         virtual void HandleInput(InputAction input) {
-            _state->HandleInput(*this, input);
+            FighterState* new_state = _state->HandleInput(*this, input);
+            if (new_state != nullptr) {
+                delete _state;
+                _state = new_state;
+                _state->Enter(*this);
+            }
+
         }
         virtual void Update() {
             _state->Update(*this);
@@ -21,8 +29,9 @@ namespace Player {
         }
         virtual void SaveState() {
         }
-        virtual void MoveFighter(int x, int y) {
-
+        virtual void MoveFighter(int dx, int dy) {
+            _gameStateData->position.x += dx;
+            _gameStateData->position.y += dy;
         }
 
     protected:
@@ -32,17 +41,16 @@ namespace Player {
 
     class InputInterpreter {
     public:
-        virtual ~InputInterpreter() {
+        InputInterpreter() {
         }
         virtual InputAction ParseInput() {
         }
     };
 
-    class InputAction {
-    public:
-        
-        virtual ~InputAction() {
-        }
+    enum InputAction {
+        Forward,
+        Backward,
+        Neutral,
     };
 }
 

@@ -4,7 +4,13 @@
 #include "inputreader.h"
 #include "gamestate.h"
 
+#include "Fighter/gameinterfaces.h"
+using namespace Player;
+
 extern GGPOSession *ggpo;
+
+IFighter Fighters[MAX_FIGHTERS];
+
 
 /*
  * InitGameState --
