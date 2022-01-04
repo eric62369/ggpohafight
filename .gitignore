@@ -1,5 +1,5 @@
 build/vs2019/src/GGPO.dir/Debug/*
-build/vs2019/src/HAFight.dir/Debug/*
+build/vs2019/src/apps/hafight/HAFight.dir/Debug/*
 
 # Ignore visual studio directies and local files
 .vscode
