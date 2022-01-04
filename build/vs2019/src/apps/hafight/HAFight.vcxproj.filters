@@ -26,7 +26,8 @@
       </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\fighter.cpp" />
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighter.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\gameinterfaces.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
@@ -66,8 +67,9 @@
       </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\fighterstates.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\gameinterfaces.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighterstates.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\gameinterfaces.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />

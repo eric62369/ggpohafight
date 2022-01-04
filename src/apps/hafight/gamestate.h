@@ -46,9 +46,7 @@ struct Fighter {
 
 struct GameState {
    void Init(int num_players);
-   void GetFighterAI(int i, double *heading, double *thrust, int *fire);
-   void ParseFighterInputs(int inputs, int i, double *heading, double *thrust, int *fire);
-   void MoveFighter(int i, double x, double y);
+   void GetFighterAI(int i);
    void Update(int inputs[], int disconnect_flags);
 
    int         _framenumber;

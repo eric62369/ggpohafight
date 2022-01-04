@@ -181,8 +181,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\fighterstates.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\gameinterfaces.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighterstates.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\gameinterfaces.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h" />
@@ -193,7 +194,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.h" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\fighter.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\gameinterfaces.cpp" />
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighter.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.cpp" />

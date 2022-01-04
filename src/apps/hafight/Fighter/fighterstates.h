@@ -2,28 +2,10 @@
 #ifndef _FIGHTERSTATES_H_
 #define _FIGHTERSTATES_H_
 
-#include "gameinterfaces.h"
+#include "fighterstates.h"
+#include "inputinterpreter.h"
 
 namespace Player {
-    class FighterState {
-    public:
-        FighterState() {
-            _frame = 0;
-        }
-        virtual FighterState* HandleInput(IFighter& fighter, InputAction input) = 0;
-        virtual void Enter(IFighter& fighter) {
-            _frame = 0;
-        };
-        virtual void Update(IFighter& fighter) {
-            _frame++;
-        }
-        virtual void LoadState(int frame) {
-            _frame = frame;
-        }
-
-    protected:
-        int _frame; // Which frame in this state are we in? count from 0 to x
-    };
 
     class StandState : public FighterState {
     public:

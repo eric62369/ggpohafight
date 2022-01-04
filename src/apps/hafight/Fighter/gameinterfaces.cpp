@@ -1,22 +1,8 @@
-#pragma once
-#ifndef _GAMEINTERFACES_H_
-#define _GAMEINTERFACES_H_
-
+#include "gameinterfaces.h"
 #include "fighterstates.h"
 #include "inputinterpreter.h"
 
 namespace Player {
-    class IFighter {
-    public:
-        virtual void HandleInput(InputAction input);
-        virtual void Update();
-        virtual void LoadState(int stateEnum, int frame);
-        virtual void SaveState();
-    protected:
-        FighterState* _state;
-        Fighter* _gameStateData;
-    };
-
     class FighterState {
     public:
         FighterState() {
