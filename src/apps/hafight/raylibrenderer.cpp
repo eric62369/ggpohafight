@@ -15,7 +15,7 @@ RaylibRenderer::RaylibRenderer()
 
 RaylibRenderer::~RaylibRenderer()
 {
-   CloseWindow();
+    CloseWindow();
 }
 
 void
@@ -28,7 +28,6 @@ RaylibRenderer::Draw(GameState &gs, NonGameState &ngs) {
     
     printf("%d %d\n", ngs.periodic.framenumber, ngs.periodic.checksum);
     printf("%f\n", gs._fighters[0].position.x);
-
     
     DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
     DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);

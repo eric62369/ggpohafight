@@ -25,7 +25,10 @@
       <Filter>
       </Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="fighter.cpp">
+      <Filter>Fighter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
@@ -64,7 +67,13 @@
       <Filter>
       </Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.h" />
+    <ClInclude Include="gameinterfaces.h">
+      <Filter>Fighter</Filter>
+    </ClInclude>
+    <ClInclude Include="fighterstates.h">
+      <Filter>Fighter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />
@@ -78,6 +87,9 @@
   <ItemGroup>
     <Filter Include=" ">
       <UniqueIdentifier>{0AB2DF47-AA50-3EEC-9A5B-E182D9BD1ABB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fighter">
+      <UniqueIdentifier>{aca5e348-2b6f-4d67-8e75-611be0e33b5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
