@@ -4,14 +4,15 @@
 #include "inputreader.h"
 #include "gamestate.h"
 
-#include "Fighter/gameinterfaces.h"
-#include "Fighter/inputinterpreter.h"
+#include "../../../build/vs2019/src/apps/hafight/Fighter/basefighter.h"
+#include "../../../build/vs2019/src/apps/hafight/Fighter/inputinterpreter.h"
+
 using namespace Player;
 
 extern GGPOSession *ggpo;
 
 // Fighter representation that modifies the fighter game state struct
-IFighter* Fighters[MAX_FIGHTERS];
+BaseFighter* Fighters[MAX_FIGHTERS];
 InputInterpreter* Interpreters[MAX_FIGHTERS];
 
 /*
@@ -28,7 +29,7 @@ GameState::Init(int num_players)
    int i;
 
    for (i = 0; i < _num_fighters; i++) {
-       Fighters[i] = new BaseFighter(_fighters[i]);
+       Fighters[i] = new BaseFighter(&_fighters[i]);
        Interpreters[i] = new InputInterpreter();
    }
 }

@@ -2,9 +2,9 @@
 #ifndef _BASEFIGHTER_H_
 #define _BASEFIGHTER_H_
 
-#include "../gamestate.h"
 #include "inputinterpreter.h"
 #include "../FighterStates/fighterstate.h"
+#include "../../../../../../src/apps/hafight/gamestate.h"
 
 namespace Player {
     class FighterState;

@@ -2,8 +2,7 @@
 #ifndef _INPUTINTERPRETER_H_
 #define _INPUTINTERPRETER_H_
 
-#include "../gamestate.h"
-#include "../inputreader.h"
+#include "../../../../../../src/apps/hafight/inputreader.h"
 
 namespace Player {
     enum InputAction {
