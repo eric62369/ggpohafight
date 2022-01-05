@@ -3,13 +3,14 @@
 #define _INPUTINTERPRETER_H_
 
 #include "../gamestate.h"
+#include "../inputreader.h"
 
 namespace Player {
     class InputInterpreter {
     public:
         InputInterpreter() {
         }
-        virtual InputAction ParseInput(int inputs) {
+        InputAction ParseInput(int inputs) {
             if (inputs & INPUT_ROTATE_RIGHT) {
                 return Forward;
             }

@@ -28,7 +28,7 @@ GameState::Init(int num_players)
    int i;
 
    for (i = 0; i < _num_fighters; i++) {
-       Fighters[i] = new IFighter(&_fighters[i]);
+       Fighters[i] = new BaseFighter(_fighters[i]);
        Interpreters[i] = new InputInterpreter();
    }
 }
