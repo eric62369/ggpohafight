@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.32002.261
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMakePredefinedTargets", "CMakePredefinedTargets", "{78DA1033-AB84-3EB7-9F33-094ECE4A69B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GLFW3", "GLFW3", "{342B8A4A-FDBE-3CAD-928A-E4E538CE9A1F}"
@@ -42,6 +40,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PACKAGE", "PACKAGE.vcxproj"
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{D89C2451-91C7-3E5A-ACFE-589A62A24307}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glfw", "_deps\raylib-build\raylib\external\glfw\src\glfw.vcxproj", "{322F4F6A-866E-3837-9569-F82A6F875979}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -89,9 +89,6 @@ Global
 		{E03B6ACD-9FCB-3F4E-8B29-4ACAA3B29E17}.Release|x64.ActiveCfg = Release|x64
 		{E03B6ACD-9FCB-3F4E-8B29-4ACAA3B29E17}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4B966A9B-7599-3F93-AF4C-D05AA7F128D2} = {78DA1033-AB84-3EB7-9F33-094ECE4A69B7}
 		{E7424B28-F31B-3453-AA88-0A510E9239E9} = {78DA1033-AB84-3EB7-9F33-094ECE4A69B7}
@@ -101,5 +98,7 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C99030DC-56A9-31B6-A1B1-3058F3F6B1CF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
 	EndGlobalSection
 EndGlobal

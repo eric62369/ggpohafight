@@ -2,83 +2,59 @@
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\main.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighter.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\gameinterfaces.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\fighterstates.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\renderer.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Resource.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\targetver.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.h">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\runner.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\fighterstates.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Fighter\gameinterfaces.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\HAFight.rc">
-      <Filter>
-      </Filter>
+      <Filter> </Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>

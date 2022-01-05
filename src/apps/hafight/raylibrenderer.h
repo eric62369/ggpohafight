@@ -16,7 +16,7 @@ public:
    ~RaylibRenderer();
 
    virtual void Draw(GameState &gs, NonGameState &ngs);
-   virtual void SetStatusText(const char *text)
+   virtual void SetStatusText(const char* text);
 
    char           _status[1024];
 };

@@ -6,6 +6,12 @@
 #include "../inputreader.h"
 
 namespace Player {
+    enum InputAction {
+        Forward,
+        Backward,
+        Neutral,
+    };
+
     class InputInterpreter {
     public:
         InputInterpreter() {
@@ -21,12 +27,6 @@ namespace Player {
                 return Neutral;
             }
         }
-    };
-
-    enum InputAction {
-        Forward,
-        Backward,
-        Neutral,
     };
 }
 
