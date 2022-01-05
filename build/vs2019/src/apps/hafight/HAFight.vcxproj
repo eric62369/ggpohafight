@@ -181,8 +181,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
     <ClCompile Include="Fighter\basefighter.cpp" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h" />
@@ -223,6 +225,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{E03B6ACD-9FCB-3F4E-8B29-4ACAA3B29E17}</Project>
       <Name>raylib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cmake_install.cmake" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

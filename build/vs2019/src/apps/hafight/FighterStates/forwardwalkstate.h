@@ -1,24 +1,20 @@
 #pragma once
-#ifndef _FIGHTERSTATES_H_
-#define _FIGHTERSTATES_H_
+#ifndef _FORWARDWALKSTATE_H_
+#define _FORWARDWALKSTATE_H_
 
-#include "../Fighter/basefighter.h"
-#include "../Fighter/inputinterpreter.h"
+#include "fighterstate.h"
 
 namespace Player {
-
-    class BaseFighter;
-
-    class FighterState {
+    class ForwardWalkState : public FighterState {
     public:
-        virtual ~FighterState() {}
-        virtual FighterState* HandleInput(BaseFighter& fighter, InputAction input) = 0;
-        virtual void Enter(BaseFighter& fighter) = 0;
-        virtual void Update(BaseFighter& fighter) = 0;
-        virtual void LoadState(int frame) = 0;
-
+        ForwardWalkState();
+        ~ForwardWalkState();
+        FighterState* HandleInput(BaseFighter& fighter, InputAction input);
+        void Enter(BaseFighter& fighter);
+        void Update(BaseFighter& fighter);
+        void LoadState(int frame);
     protected:
-        int _frame = 0; // Which frame in this state are we in? count from 0 to x
+        int _forwardWalkSpeed;
     };
 }
 

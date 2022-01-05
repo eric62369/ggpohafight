@@ -36,6 +36,7 @@ GameState::Init(int num_players)
 
 void GameState::GetFighterAI(int i)
 {
+    i = i;
 }
 void
 GameState::Update(int inputs[], int disconnect_flags)

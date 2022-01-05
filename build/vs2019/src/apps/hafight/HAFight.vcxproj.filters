@@ -27,6 +27,7 @@
     </ClCompile>
     <ClCompile Include="Fighter\basefighter.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
@@ -69,6 +70,7 @@
     <ClInclude Include="Fighter\inputinterpreter.h" />
     <ClInclude Include="FighterStates\fighterstate.h" />
     <ClInclude Include="FighterStates\forwardwalkstate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />
@@ -83,5 +85,8 @@
     <Filter Include=" ">
       <UniqueIdentifier>{0AB2DF47-AA50-3EEC-9A5B-E182D9BD1ABB}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cmake_install.cmake" />
   </ItemGroup>
 </Project>
