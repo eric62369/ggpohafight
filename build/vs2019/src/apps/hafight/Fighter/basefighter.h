@@ -4,7 +4,7 @@
 
 #include "inputinterpreter.h"
 #include "../FighterStates/fighterstate.h"
-#include "../../../../../../src/apps/hafight/gamestate.h"
+#include "../MainGame/gamestate.h"
 
 namespace Player {
     class FighterState;
