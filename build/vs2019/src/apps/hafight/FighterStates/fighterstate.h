@@ -19,7 +19,13 @@ namespace Player {
         virtual void LoadState(int frame);
 
     protected:
-        int _frame = 0; // Which frame in this state are we in? count from 0 to x
+        int _frame; // Which frame in this state are we in? count from 0 to x
+    };
+
+    enum StateEnum {
+        Stand,
+        ForwardWalk,
+        BackwardWalk
     };
 }
 

@@ -1,5 +1,7 @@
 #include "basefighter.h"
 #include "../FighterStates/forwardwalkstate.h"
+#include "../FighterStates/standstate.h"
+#include "../FighterStates/backwardwalkstate.h"
 
 namespace Player {
     BaseFighter::BaseFighter(Fighter* gameStateData) {
@@ -22,7 +24,19 @@ namespace Player {
         _state->Update(*this);
     }
     void BaseFighter::LoadState(int stateEnum, int frame) {
-        stateEnum = stateEnum + frame; // TODO: just dealing with warning for now
+        delete _state;
+        switch (stateEnum) {
+            case Stand:
+                _state = new StandState();
+                break;
+            case ForwardWalk:
+                _state = new ForwardWalkState();
+                break;
+            case BackwardWalk:
+                _state = new BackwardWalkState();
+                break;
+        }
+        _state->LoadState(frame);
     }
     void BaseFighter::SaveState() {}
     void BaseFighter::MoveFighter(int dx, int dy) {
