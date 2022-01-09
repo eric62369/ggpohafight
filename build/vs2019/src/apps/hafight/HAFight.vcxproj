@@ -181,24 +181,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\renderer.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Resource.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\targetver.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.h" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\main.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp" />
-    <ResourceCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\HAFight.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\ZERO_CHECK.vcxproj">
       <Project>{D89C2451-91C7-3E5A-ACFE-589A62A24307}</Project>
       <Name>ZERO_CHECK</Name>
@@ -217,6 +199,37 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{E03B6ACD-9FCB-3F4E-8B29-4ACAA3B29E17}</Project>
       <Name>raylib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MainGame\gamestate.cpp" />
+    <ClCompile Include="MainGame\ggpo_perfmon.cpp" />
+    <ClCompile Include="MainGame\hafight.cpp" />
+    <ClCompile Include="MainGame\inputreader.cpp" />
+    <ClCompile Include="MainGame\main.cpp" />
+    <ClCompile Include="MainGame\raylibrenderer.cpp" />
+    <ClCompile Include="MainGame\runner.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MainGame\gamestate.h" />
+    <ClInclude Include="MainGame\ggpo_perfmon.h" />
+    <ClInclude Include="MainGame\hafight.h" />
+    <ClInclude Include="MainGame\inputreader.h" />
+    <ClInclude Include="MainGame\nongamestate.h" />
+    <ClInclude Include="MainGame\raylibrenderer.h" />
+    <ClInclude Include="MainGame\renderer.h" />
+    <ClInclude Include="MainGame\Resource.h" />
+    <ClInclude Include="MainGame\runner.h" />
+    <ClInclude Include="MainGame\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MainGame\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MainGame\CMakeSources.cmake" />
+    <None Include="MainGame\cmake_install.cmake" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MainGame\HAFight.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
