@@ -182,6 +182,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="FighterStates\backwardwalkstate.cpp" />
     <ClCompile Include="FighterStates\fighterstate.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
     <ClCompile Include="FighterStates\standstate.cpp" />
@@ -202,6 +203,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp" />
+    <ClInclude Include="FighterStates\backwardwalkstate.h" />
     <ClInclude Include="FighterStates\fighterstate.h" />
     <ClInclude Include="FighterStates\forwardwalkstate.h" />
     <ClInclude Include="FighterStates\standstate.h" />

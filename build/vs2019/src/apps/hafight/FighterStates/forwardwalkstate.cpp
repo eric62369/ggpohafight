@@ -1,5 +1,6 @@
 #include "fighterstate.h"
 #include "forwardwalkstate.h"
+#include "backwardwalkstate.h"
 #include "standstate.h"
 
 namespace Player {
@@ -14,7 +15,7 @@ namespace Player {
             return new StandState();
         }
         else if (input == InputAction::Backward) {
-            return new ForwardWalkState();
+            return new BackwardWalkState();
         }
         else {
             return nullptr;
@@ -22,11 +23,9 @@ namespace Player {
     }
     void ForwardWalkState::Enter(BaseFighter& fighter) {
         FighterState::Enter(fighter);
-        fighter = fighter;
     }
     void ForwardWalkState::Update(BaseFighter& fighter) {
         FighterState::Update(fighter);
-        fighter = fighter;
         fighter.MoveFighter(_forwardWalkSpeed, 0);
     }
     void ForwardWalkState::LoadState(int frame) {

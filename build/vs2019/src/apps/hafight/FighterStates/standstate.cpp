@@ -1,5 +1,6 @@
 #include "standstate.h"
 #include "forwardwalkstate.h"
+#include "backwardwalkstate.h"
 
 namespace Player {
     StandState::StandState() : FighterState() {
@@ -11,7 +12,7 @@ namespace Player {
             return new ForwardWalkState();
         }
         else if (input == InputAction::Backward) {
-            return new StandState();
+            return new BackwardWalkState();
         }
         else {
             return nullptr;
