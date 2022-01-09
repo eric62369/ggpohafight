@@ -16,6 +16,11 @@
     <ClCompile Include="MainGame\main.cpp" />
     <ClCompile Include="MainGame\raylibrenderer.cpp" />
     <ClCompile Include="MainGame\runner.cpp" />
+    <ClCompile Include="Fighter\basefighter.cpp" />
+    <ClCompile Include="FighterStates\backwardwalkstate.cpp" />
+    <ClCompile Include="FighterStates\fighterstate.cpp" />
+    <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
+    <ClCompile Include="FighterStates\standstate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame\gamestate.h" />
@@ -28,6 +33,12 @@
     <ClInclude Include="MainGame\Resource.h" />
     <ClInclude Include="MainGame\runner.h" />
     <ClInclude Include="MainGame\targetver.h" />
+    <ClInclude Include="Fighter\basefighter.h" />
+    <ClInclude Include="Fighter\inputinterpreter.h" />
+    <ClInclude Include="FighterStates\backwardwalkstate.h" />
+    <ClInclude Include="FighterStates\fighterstate.h" />
+    <ClInclude Include="FighterStates\forwardwalkstate.h" />
+    <ClInclude Include="FighterStates\standstate.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MainGame\CMakeLists.txt" />
@@ -35,6 +46,7 @@
   <ItemGroup>
     <None Include="MainGame\CMakeSources.cmake" />
     <None Include="MainGame\cmake_install.cmake" />
+    <None Include="cmake_install.cmake" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MainGame\HAFight.rc" />

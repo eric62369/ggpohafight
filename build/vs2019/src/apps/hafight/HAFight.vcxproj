@@ -201,6 +201,11 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FighterStates\backwardwalkstate.cpp" />
+    <ClCompile Include="FighterStates\fighterstate.cpp" />
+    <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
+    <ClCompile Include="FighterStates\standstate.cpp" />
+    <ClCompile Include="Fighter\basefighter.cpp" />
     <ClCompile Include="MainGame\gamestate.cpp" />
     <ClCompile Include="MainGame\ggpo_perfmon.cpp" />
     <ClCompile Include="MainGame\hafight.cpp" />
@@ -210,6 +215,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="MainGame\runner.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FighterStates\backwardwalkstate.h" />
+    <ClInclude Include="FighterStates\fighterstate.h" />
+    <ClInclude Include="FighterStates\forwardwalkstate.h" />
+    <ClInclude Include="FighterStates\standstate.h" />
+    <ClInclude Include="Fighter\basefighter.h" />
+    <ClInclude Include="Fighter\inputinterpreter.h" />
     <ClInclude Include="MainGame\gamestate.h" />
     <ClInclude Include="MainGame\ggpo_perfmon.h" />
     <ClInclude Include="MainGame\hafight.h" />
@@ -225,6 +236,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <Text Include="MainGame\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cmake_install.cmake" />
     <None Include="MainGame\CMakeSources.cmake" />
     <None Include="MainGame\cmake_install.cmake" />
   </ItemGroup>
