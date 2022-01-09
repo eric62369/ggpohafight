@@ -181,13 +181,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
-    <ClCompile Include="FighterStates\backwardwalkstate.cpp" />
-    <ClCompile Include="FighterStates\fighterstate.cpp" />
-    <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
-    <ClCompile Include="FighterStates\standstate.cpp" />
-    <ClCompile Include="Fighter\basefighter.cpp" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h" />
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h" />
@@ -203,12 +196,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp" />
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp" />
-    <ClInclude Include="FighterStates\backwardwalkstate.h" />
-    <ClInclude Include="FighterStates\fighterstate.h" />
-    <ClInclude Include="FighterStates\forwardwalkstate.h" />
-    <ClInclude Include="FighterStates\standstate.h" />
-    <ClInclude Include="Fighter\basefighter.h" />
-    <ClInclude Include="Fighter\inputinterpreter.h" />
     <ResourceCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\HAFight.rc" />
   </ItemGroup>
   <ItemGroup>
@@ -230,9 +217,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Project>{E03B6ACD-9FCB-3F4E-8B29-4ACAA3B29E17}</Project>
       <Name>raylib</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cmake_install.cmake" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
