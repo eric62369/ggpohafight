@@ -1,16 +1,19 @@
+#include "fighterstate.h"
 #include "forwardwalkstate.h"
+#include "standstate.h"
 
 namespace Player {
-    ForwardWalkState::ForwardWalkState() {
+
+    ForwardWalkState::ForwardWalkState() : FighterState() {
         _forwardWalkSpeed = 2;
     }
     ForwardWalkState::~ForwardWalkState() {}
     FighterState* ForwardWalkState::HandleInput(BaseFighter& fighter, InputAction input) {
         fighter = fighter; // TODO: removing warning
-        if (input == Neutral) {
-            return new ForwardWalkState();
+        if (input == InputAction::Neutral) {
+            return new StandState();
         }
-        else if (input == Backward) {
+        else if (input == InputAction::Backward) {
             return new ForwardWalkState();
         }
         else {
@@ -18,15 +21,15 @@ namespace Player {
         }
     }
     void ForwardWalkState::Enter(BaseFighter& fighter) {
-        //FighterState::Enter(fighter);
+        FighterState::Enter(fighter);
         fighter = fighter;
     }
     void ForwardWalkState::Update(BaseFighter& fighter) {
-        //FighterState::Update(fighter);
+        FighterState::Update(fighter);
         fighter = fighter;
         fighter.MoveFighter(_forwardWalkSpeed, 0);
     }
     void ForwardWalkState::LoadState(int frame) {
-        frame = frame;
+        FighterState::LoadState(frame);
     }
 }

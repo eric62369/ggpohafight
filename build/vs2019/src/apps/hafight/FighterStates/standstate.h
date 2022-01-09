@@ -1,20 +1,18 @@
 #pragma once
-#ifndef _FORWARDWALKSTATE_H_
-#define _FORWARDWALKSTATE_H_
+#ifndef _STANDSTATE_H_
+#define _STANDSTATE_H_
 
 #include "fighterstate.h"
 
 namespace Player {
-    class ForwardWalkState : public FighterState {
+    class StandState : public FighterState {
     public:
-        ForwardWalkState();
-        ~ForwardWalkState();
+        StandState();
+        ~StandState();
         FighterState* HandleInput(BaseFighter& fighter, InputAction input) override;
         void Enter(BaseFighter& fighter) override;
         void Update(BaseFighter& fighter) override;
         void LoadState(int frame) override;
-    protected:
-        int _forwardWalkSpeed;
     };
 }
 

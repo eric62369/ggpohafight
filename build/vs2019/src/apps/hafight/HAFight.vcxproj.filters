@@ -28,6 +28,8 @@
     <ClCompile Include="Fighter\basefighter.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
     <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="FighterStates\standstate.cpp" />
+    <ClCompile Include="FighterStates\fighterstate.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
@@ -71,6 +73,7 @@
     <ClInclude Include="FighterStates\fighterstate.h" />
     <ClInclude Include="FighterStates\forwardwalkstate.h" />
     <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
+    <ClInclude Include="FighterStates\standstate.h" />
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />

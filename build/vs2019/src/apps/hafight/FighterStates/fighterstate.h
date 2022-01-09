@@ -11,11 +11,12 @@ namespace Player {
 
     class FighterState {
     public:
-        virtual ~FighterState() {}
+        FighterState();
+        virtual ~FighterState();
         virtual FighterState* HandleInput(BaseFighter& fighter, InputAction input) = 0;
-        virtual void Enter(BaseFighter& fighter) = 0;
-        virtual void Update(BaseFighter& fighter) = 0;
-        virtual void LoadState(int frame) = 0;
+        virtual void Enter(BaseFighter& fighter);
+        virtual void Update(BaseFighter& fighter);
+        virtual void LoadState(int frame);
 
     protected:
         int _frame = 0; // Which frame in this state are we in? count from 0 to x

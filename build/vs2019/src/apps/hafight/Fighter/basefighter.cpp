@@ -4,7 +4,7 @@
 namespace Player {
     BaseFighter::BaseFighter(Fighter* gameStateData) {
         this->_gameStateData = gameStateData;
-        _state = nullptr;
+        _state = new ForwardWalkState();
         this->_gameStateData->position.x = 100;
         this->_gameStateData->position.y = 100;
     }

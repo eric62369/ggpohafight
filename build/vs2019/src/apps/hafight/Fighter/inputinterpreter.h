@@ -5,7 +5,7 @@
 #include "../../../../../../src/apps/hafight/inputreader.h"
 
 namespace Player {
-    enum InputAction {
+    enum class InputAction {
         Forward,
         Backward,
         Neutral,
@@ -17,13 +17,13 @@ namespace Player {
         }
         InputAction ParseInput(int inputs) {
             if (inputs & INPUT_ROTATE_RIGHT) {
-                return Forward;
+                return InputAction::Forward;
             }
             else if (inputs & INPUT_ROTATE_LEFT) {
-                return Backward;
+                return InputAction::Backward;
             }
             else {
-                return Neutral;
+                return InputAction::Neutral;
             }
         }
     };
