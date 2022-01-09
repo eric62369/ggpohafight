@@ -34,7 +34,8 @@ GameState::Init(int num_players)
    }
 }
 
-void GameState::GetFighterAI(int i)
+void
+GameState::GetFighterAI(int i)
 {
     i = i;
 }
