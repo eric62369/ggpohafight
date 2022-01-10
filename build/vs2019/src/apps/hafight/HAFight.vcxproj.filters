@@ -21,6 +21,7 @@
     <ClCompile Include="FighterStates\fighterstate.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
     <ClCompile Include="FighterStates\standstate.cpp" />
+    <ClCompile Include="Physics\rigidbody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame\gamestate.h" />
@@ -39,6 +40,7 @@
     <ClInclude Include="FighterStates\fighterstate.h" />
     <ClInclude Include="FighterStates\forwardwalkstate.h" />
     <ClInclude Include="FighterStates\standstate.h" />
+    <ClInclude Include="Physics\rigidbody.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MainGame\CMakeLists.txt" />
