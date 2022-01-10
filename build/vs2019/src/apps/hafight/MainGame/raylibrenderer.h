@@ -17,8 +17,10 @@ public:
 
 	virtual void Draw(GameState& gs, NonGameState& ngs);
 	virtual void SetStatusText(const char* text);
+	virtual void ToggleFPS();
 
 	char           _status[1024];
+	bool		   _drawFPS;
 };
 
 #endif
