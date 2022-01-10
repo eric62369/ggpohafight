@@ -42,6 +42,7 @@ add_common_flags(HAFight)
 # Change the character set to unicode.
 add_definitions(-D_UNICODE -DUNICODE)
 
-# Link against GGPO, winmm (Windows Multimedia API), and ws2_32 (Winsock).
-target_link_libraries(HAFight LINK_PUBLIC GGPO winmm.lib ws2_32.lib opengl32.lib gdi32.lib raylib)
+find_package(Boost REQUIRED boost-multiprecision)
+# Link against GGPO, winmm (Windows Multimedia API), and ws2_32 (Winsock). Added raylib and boost
+target_link_libraries(HAFight LINK_PUBLIC GGPO winmm.lib ws2_32.lib opengl32.lib gdi32.lib raylib Boost::boost Boost::boost-multiprecision)
 target_compile_options(HAFight PRIVATE "/W4" "/WX")
