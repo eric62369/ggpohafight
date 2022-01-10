@@ -27,4 +27,7 @@ namespace Player {
     void StandState::LoadState(int frame) {
         FighterState::LoadState(frame);
     }
+    int StandState::SaveState() {
+        return Stand;
+    }
 }

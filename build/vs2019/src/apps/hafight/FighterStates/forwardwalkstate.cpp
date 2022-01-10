@@ -31,4 +31,7 @@ namespace Player {
     void ForwardWalkState::LoadState(int frame) {
         FighterState::LoadState(frame);
     }
+    int ForwardWalkState::SaveState() {
+        return ForwardWalk;
+    }
 }

@@ -38,7 +38,10 @@ namespace Player {
         }
         _state->LoadState(frame);
     }
-    void BaseFighter::SaveState() {}
+    void BaseFighter::SaveState() {
+        _gameStateData->state = _state->SaveState();
+        _gameStateData->frame = _state->GetFrame();
+    }
     void BaseFighter::MoveFighter(int dx, int dy) {
         _gameStateData->position.x += dx;
         _gameStateData->position.y += dy;

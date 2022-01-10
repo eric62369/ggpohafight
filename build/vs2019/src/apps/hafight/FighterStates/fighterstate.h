@@ -17,6 +17,10 @@ namespace Player {
         virtual void Enter(BaseFighter& fighter);
         virtual void Update(BaseFighter& fighter);
         virtual void LoadState(int frame);
+        virtual int SaveState() = 0;
+        int GetFrame() {
+            return _frame;
+        }
 
     protected:
         int _frame; // Which frame in this state are we in? count from 0 to x

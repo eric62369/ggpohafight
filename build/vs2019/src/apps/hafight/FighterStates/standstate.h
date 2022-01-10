@@ -13,6 +13,7 @@ namespace Player {
         void Enter(BaseFighter& fighter) override;
         void Update(BaseFighter& fighter) override;
         void LoadState(int frame) override;
+        int SaveState() override;
     };
 }
 

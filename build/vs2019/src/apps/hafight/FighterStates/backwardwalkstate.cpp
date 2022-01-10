@@ -31,4 +31,7 @@ namespace Player {
     void BackwardWalkState::LoadState(int frame) {
         FighterState::LoadState(frame);
     }
+    int BackwardWalkState::SaveState() {
+        return BackwardWalk;
+    }
 }

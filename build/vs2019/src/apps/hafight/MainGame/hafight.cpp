@@ -179,12 +179,6 @@ ha_log_game_state(char* filename, unsigned char* buffer, int)
             Fighter* fighter = gamestate->_fighters + i;
             fprintf(fp, "  fighter %d position:  %d, %d\n", i, fighter->position.x, fighter->position.y);
             fprintf(fp, "  fighter %d velocity:  %d, %d\n", i, fighter->velocity.dx, fighter->velocity.dy);
-            fprintf(fp, "  fighter %d radius:    %d.\n", i, fighter->radius);
-            fprintf(fp, "  fighter %d heading:   %d.\n", i, fighter->heading);
-            fprintf(fp, "  fighter %d health:    %d.\n", i, fighter->health);
-            fprintf(fp, "  fighter %d speed:     %d.\n", i, fighter->speed);
-            fprintf(fp, "  fighter %d cooldown:  %d.\n", i, fighter->cooldown);
-            fprintf(fp, "  fighter %d score:     %d.\n", i, fighter->score);
         }
         fclose(fp);
     }

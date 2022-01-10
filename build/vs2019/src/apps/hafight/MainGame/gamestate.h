@@ -36,12 +36,8 @@ struct Velocity {
 struct Fighter {
 	Position position;
 	Velocity velocity;
-	int      radius;
-	int      heading;
-	int      health;
-	int      speed;
-	int      cooldown;
-	int      score;
+	int state;
+	int frame;
 };
 
 struct GameState {
