@@ -7,7 +7,8 @@ Camera2D _camera;
 const int screenWidth = 800;
 const int screenHeight = 450;
 
-RaylibRenderer::RaylibRenderer()
+RaylibRenderer::RaylibRenderer() :
+    _status("None")
 {
     InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
 

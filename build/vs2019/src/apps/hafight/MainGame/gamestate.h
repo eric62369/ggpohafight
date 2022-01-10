@@ -26,11 +26,11 @@
 #define MAX_FIGHTERS               2
 
 struct Position {
-	double x, y;
+	int x, y;
 };
 
 struct Velocity {
-	double dx, dy;
+	int dx, dy;
 };
 
 struct Fighter {
