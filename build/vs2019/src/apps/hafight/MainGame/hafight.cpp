@@ -243,9 +243,7 @@ HAFight_Init(unsigned short localport, int num_players, GGPOPlayer* players, int
     int i;
     for (i = 0; i < num_players + num_spectators; i++) {
         GGPOPlayerHandle handle;
-        printf("\n%d\n", i);
         result = ggpo_add_player(ggpo, players + i, &handle);
-        printf("\n%d %d %d\n", result, i, num_players + num_spectators);
         ngs.players[i].handle = handle;
         ngs.players[i].type = players[i].type;
         if (players[i].type == GGPO_PLAYERTYPE_LOCAL) {
