@@ -14,10 +14,10 @@ namespace Physics {
     public:
         Rigidbody();
         virtual ~Rigidbody();
+        virtual void Update();
         virtual void ApplyForce(float x, float y);
         virtual void SetVelX(float x);
         virtual void SetVelY(float y);
-        virtual void Update();
         virtual float GetX();
         virtual float GetY();
         virtual float GetVelX();

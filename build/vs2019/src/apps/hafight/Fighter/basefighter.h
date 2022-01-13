@@ -5,6 +5,7 @@
 #include "inputinterpreter.h"
 #include "../FighterStates/fighterstate.h"
 #include "../MainGame/gamestate.h"
+#include "../Physics/rigidbody.h"
 
 namespace Player {
     class FighterState;
@@ -16,12 +17,15 @@ namespace Player {
         void HandleInput(InputAction input);
         void Update();
         void LoadState(int stateEnum, int frame);
-        void SaveState();
-        void MoveFighter(int dx, int dy);
+        void MoveFighter(float dx, float dy);
 
     private:
+        void UpdatePosition();
+        void SaveState();
+
         Fighter* _gameStateData;
         FighterState* _state;
+        Physics::Rigidbody _rb;
     };
 }
 

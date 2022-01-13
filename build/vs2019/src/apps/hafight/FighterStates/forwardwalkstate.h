@@ -15,7 +15,7 @@ namespace Player {
         void LoadState(int frame) override;
         int SaveState() override;
     protected:
-        int _forwardWalkSpeed;
+        float _forwardWalkSpeed;
     };
 }
 

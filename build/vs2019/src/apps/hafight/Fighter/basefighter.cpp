@@ -22,6 +22,9 @@ namespace Player {
     }
     void BaseFighter::Update() {
         _state->Update(*this);
+        _rb.Update();
+        UpdatePosition();
+        SaveState();
     }
     void BaseFighter::LoadState(int stateEnum, int frame) {
         delete _state;
@@ -42,8 +45,15 @@ namespace Player {
         _gameStateData->state = _state->SaveState();
         _gameStateData->frame = _state->GetFrame();
     }
-    void BaseFighter::MoveFighter(int dx, int dy) {
-        _gameStateData->position.x += dx;
-        _gameStateData->position.y += dy;
+    void BaseFighter::MoveFighter(float dx, float dy) {
+        _rb.SetVelX(dx);
+        _rb.SetVelY(dy);
+    }
+
+    void BaseFighter::UpdatePosition() {
+        _gameStateData->position.x = _rb.GetX();
+        _gameStateData->position.y = _rb.GetY();
+        _gameStateData->velocity.dx = _rb.GetVelX();
+        _gameStateData->velocity.dy = _rb.GetVelY();
     }
 }

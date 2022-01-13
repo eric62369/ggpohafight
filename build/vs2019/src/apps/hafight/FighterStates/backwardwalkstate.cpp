@@ -6,7 +6,7 @@
 namespace Player {
 
     BackwardWalkState::BackwardWalkState() : FighterState() {
-        _backwardWalkSpeed = 1;
+        _backwardWalkSpeed = 1.5656f;
     }
     BackwardWalkState::~BackwardWalkState() {}
     FighterState* BackwardWalkState::HandleInput(BaseFighter& fighter, InputAction input) {

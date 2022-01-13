@@ -46,6 +46,20 @@ RaylibRenderer::Draw(GameState& gs, NonGameState& ngs) {
         DrawText(framecount_char, 10, 20, 8, DARKGRAY);
         DrawText(checksum_char, 10, 30, 8, DARKGRAY);
 
+        std::string tmp3 = std::to_string(gs._fighters[0].state);
+        char const* v1 = tmp3.c_str();
+        DrawText(v1, 10, 40, 8, DARKGRAY);
+        std::string tmp4 = std::to_string(gs._fighters[1].state);
+        char const* v2 = tmp4.c_str();
+        DrawText(v2, 10, 50, 8, DARKGRAY);
+
+        std::string tmp5 = std::to_string(gs._fighters[0].velocity.dx);
+        char const* v3 = tmp5.c_str();
+        DrawText(v3, 10, 60, 8, DARKGRAY);
+        std::string tmp6 = std::to_string(gs._fighters[1].velocity.dx);
+        char const* v4 = tmp6.c_str();
+        DrawText(v4, 10, 70, 8, DARKGRAY);
+
         BeginMode2D(_camera);
             DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
             DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);

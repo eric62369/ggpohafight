@@ -39,6 +39,7 @@ GameState::GetFighterAI(int i)
 {
     i = i;
 }
+
 void
 GameState::Update(int inputs[], int disconnect_flags)
 {
