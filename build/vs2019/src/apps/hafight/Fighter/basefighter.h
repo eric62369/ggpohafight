@@ -20,7 +20,6 @@ namespace Player {
         void MoveFighter(float dx, float dy);
 
     private:
-        void UpdatePosition();
         void SaveState();
 
         Fighter* _gameStateData;

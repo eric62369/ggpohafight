@@ -1,10 +1,15 @@
 #include "basefighter.h"
+#include "../Physics/rigidbody.h"
 #include "../FighterStates/forwardwalkstate.h"
 #include "../FighterStates/standstate.h"
 #include "../FighterStates/backwardwalkstate.h"
 
 namespace Player {
-    BaseFighter::BaseFighter(Fighter* gameStateData) {
+    BaseFighter::BaseFighter(Fighter* gameStateData) :
+        _rb (&gameStateData->position.x,
+            &gameStateData->position.y,
+            &gameStateData->velocity.dx,
+            &gameStateData->velocity.dy) {
         this->_gameStateData = gameStateData;
         _state = new ForwardWalkState();
         this->_gameStateData->position.x = 100;
@@ -23,7 +28,6 @@ namespace Player {
     void BaseFighter::Update() {
         _state->Update(*this);
         _rb.Update();
-        UpdatePosition();
         SaveState();
     }
     void BaseFighter::LoadState(int stateEnum, int frame) {
@@ -48,12 +52,5 @@ namespace Player {
     void BaseFighter::MoveFighter(float dx, float dy) {
         _rb.SetVelX(dx);
         _rb.SetVelY(dy);
-    }
-
-    void BaseFighter::UpdatePosition() {
-        _gameStateData->position.x = _rb.GetX();
-        _gameStateData->position.y = _rb.GetY();
-        _gameStateData->velocity.dx = _rb.GetVelX();
-        _gameStateData->velocity.dy = _rb.GetVelY();
     }
 }
