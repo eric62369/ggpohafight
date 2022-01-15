@@ -3,6 +3,8 @@
 #include "hafight.h"
 #include <chrono>
 
+#include <stdio.h>
+
 
 using namespace std::chrono;
 
@@ -14,16 +16,6 @@ using namespace std::chrono;
  */
 
 int RunMainLoop() {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    //const int screenWidth = 800;
-    //const int screenHeight = 450;
-
-    //InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
-
-    //SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
-
     // Main game loop
     int next, now;
     next = (int)duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
@@ -36,25 +28,15 @@ int RunMainLoop() {
         now = (int)duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
         HAFight_Idle(std::max(0, next - now - 1));
 
-        // printf("%d %d %d\n", now, next, next - now - 1);
+         printf("%d %d %d\n", now, next, next - now - 1);
 
         if (now >= next) {
             HAFight_RunFrame();
             next = now + (1000 / 60);
         }
 
-        //----------------------------------------------------------------------------------
-
-        // Draw
-        //----------------------------------------------------------------------------------
-
-        //----------------------------------------------------------------------------------
     }
-
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
     HAFight_Exit();
-    //--------------------------------------------------------------------------------------
 
     return 0;
 }
