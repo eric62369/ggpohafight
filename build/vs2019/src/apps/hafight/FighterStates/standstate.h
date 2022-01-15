@@ -7,7 +7,7 @@
 namespace Player {
     class StandState : public FighterState {
     public:
-        StandState();
+        StandState(int* frame);
         ~StandState();
         FighterState* HandleInput(BaseFighter& fighter, InputAction input) override;
         void Enter(BaseFighter& fighter) override;

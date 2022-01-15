@@ -7,7 +7,7 @@
 namespace Player {
     class ForwardWalkState : public FighterState {
     public:
-        ForwardWalkState();
+        ForwardWalkState(int* frame);
         ~ForwardWalkState();
         FighterState* HandleInput(BaseFighter& fighter, InputAction input) override;
         void Enter(BaseFighter& fighter) override;

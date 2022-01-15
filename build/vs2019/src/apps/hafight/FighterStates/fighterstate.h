@@ -11,7 +11,7 @@ namespace Player {
 
     class FighterState {
     public:
-        FighterState();
+        FighterState(int* frame);
         virtual ~FighterState();
         virtual FighterState* HandleInput(BaseFighter& fighter, InputAction input) = 0;
         virtual void Enter(BaseFighter& fighter);
@@ -19,11 +19,11 @@ namespace Player {
         virtual void LoadState(int frame);
         virtual int SaveState() = 0;
         int GetFrame() {
-            return _frame;
+            return *_frame;
         }
 
     protected:
-        int _frame; // Which frame in this state are we in? count from 0 to x
+        int* _frame; // Which frame in this state are we in? count from 0 to x
     };
 
     enum StateEnum {

@@ -5,17 +5,17 @@
 
 namespace Player {
 
-    ForwardWalkState::ForwardWalkState() : FighterState() {
+    ForwardWalkState::ForwardWalkState(int* frame) : FighterState(frame) {
         _forwardWalkSpeed = 2.5656f;
     }
     ForwardWalkState::~ForwardWalkState() {}
     FighterState* ForwardWalkState::HandleInput(BaseFighter& fighter, InputAction input) {
         fighter = fighter; // TODO: removing warning
         if (input == InputAction::Neutral) {
-            return new StandState();
+            return new StandState(_frame);
         }
         else if (input == InputAction::Backward) {
-            return new BackwardWalkState();
+            return new BackwardWalkState(_frame);
         }
         else {
             return nullptr;

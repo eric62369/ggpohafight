@@ -3,16 +3,16 @@
 #include "backwardwalkstate.h"
 
 namespace Player {
-    StandState::StandState() : FighterState() {
+    StandState::StandState(int* frame) : FighterState(frame) {
     }
     StandState::~StandState() {}
     FighterState* StandState::HandleInput(BaseFighter& fighter, InputAction input) {
         fighter = fighter; // TODO: removing warning
         if (input == InputAction::Forward) {
-            return new ForwardWalkState();
+            return new ForwardWalkState(_frame);
         }
         else if (input == InputAction::Backward) {
-            return new BackwardWalkState();
+            return new BackwardWalkState(_frame);
         }
         else {
             return nullptr;

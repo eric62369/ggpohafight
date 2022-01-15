@@ -11,7 +11,7 @@ namespace Player {
             &gameStateData->velocity.dx,
             &gameStateData->velocity.dy) {
         this->_gameStateData = gameStateData;
-        _state = new ForwardWalkState();
+        _state = new ForwardWalkState(&(_gameStateData->frame));
         this->_gameStateData->position.x = 100;
         this->_gameStateData->position.y = 100;
     }
@@ -34,13 +34,13 @@ namespace Player {
         delete _state;
         switch (stateEnum) {
             case Stand:
-                _state = new StandState();
+                _state = new StandState(&(_gameStateData->frame));
                 break;
             case ForwardWalk:
-                _state = new ForwardWalkState();
+                _state = new ForwardWalkState(&(_gameStateData->frame));
                 break;
             case BackwardWalk:
-                _state = new BackwardWalkState();
+                _state = new BackwardWalkState(&(_gameStateData->frame));
                 break;
         }
         _state->LoadState(frame);
