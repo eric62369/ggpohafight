@@ -16,7 +16,7 @@
   * Initialize the fight game.  This initializes the game state and
   * the video renderer and creates a new network session.
   */
-void HAFight_Init(unsigned short localport, int num_players, GGPOPlayer* players, int num_spectators);
+void HAFight_Init(unsigned short localport, int player_num, int num_players, GGPOPlayer* players, int num_spectators);
 /*
  * HAFight_InitSpectator --
  *

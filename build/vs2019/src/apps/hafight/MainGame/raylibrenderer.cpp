@@ -7,10 +7,17 @@ Camera2D _camera;
 const int screenWidth = 800;
 const int screenHeight = 450;
 
-RaylibRenderer::RaylibRenderer() :
+RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _status("None")
 {
     InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
+
+    if (ngs.player_num == 0) {
+        SetWindowPosition(0, 20);
+    }
+    else {
+        SetWindowPosition(0, 500);
+    }
 
     _camera = { 0 };
     _camera.target = { 0.0f, 0.0f };
@@ -53,12 +60,9 @@ RaylibRenderer::Draw(GameState& gs, NonGameState& ngs) {
         char const* v2 = tmp4.c_str();
         DrawText(v2, 10, 50, 8, DARKGRAY);
 
-        std::string tmp5 = std::to_string(gs._fighters[0].velocity.dx);
+        std::string tmp5 = std::to_string(ngs.player_num);
         char const* v3 = tmp5.c_str();
-        DrawText(v3, 10, 60, 8, DARKGRAY);
-        std::string tmp6 = std::to_string(gs._fighters[1].velocity.dx);
-        char const* v4 = tmp6.c_str();
-        DrawText(v4, 10, 70, 8, DARKGRAY);
+        DrawText(v3, 160, 10, 8, DARKGRAY);
 
         BeginMode2D(_camera);
             DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);

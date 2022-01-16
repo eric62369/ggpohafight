@@ -12,7 +12,7 @@
 
 class RaylibRenderer : public Renderer {
 public:
-	RaylibRenderer();
+	RaylibRenderer(NonGameState& ngs);
 	~RaylibRenderer();
 
 	virtual void Draw(GameState& gs, NonGameState& ngs);

@@ -28,7 +28,7 @@ int RunMainLoop() {
         now = (int)duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
         HAFight_Idle(std::max(0, next - now - 1));
 
-         printf("%d %d %d\n", now, next, next - now - 1);
+        //printf("%d %d %d\n", now, next, next - now - 1);
 
         if (now >= next) {
             HAFight_RunFrame();

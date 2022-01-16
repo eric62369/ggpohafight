@@ -203,14 +203,16 @@ ha_free_buffer(void* buffer)
  * the video renderer and creates a new network session.
  */
 void
-HAFight_Init(unsigned short localport, int num_players, GGPOPlayer* players, int num_spectators)
+HAFight_Init(unsigned short localport, int player_num, int num_players, GGPOPlayer* players, int num_spectators)
 {
     GGPOErrorCode result;
-    renderer = new RaylibRenderer();
 
     // Initialize the game state
     gs.Init(num_players);
     ngs.num_players = num_players;
+    ngs.player_num = player_num;
+
+    renderer = new RaylibRenderer(ngs);
 
     // Fill in a ggpo callbacks structure to pass to start_session.
     GGPOSessionCallbacks cb = { 0 };
@@ -263,11 +265,13 @@ void
 HAFight_InitSpectator(unsigned short localport, int num_players, char* host_ip, unsigned short host_port)
 {
     GGPOErrorCode result;
-    renderer = new RaylibRenderer();
 
     // Initialize the game state
     gs.Init(num_players);
     ngs.num_players = num_players;
+    ngs.player_num = 2;
+
+    renderer = new RaylibRenderer(ngs);
 
     // Fill in a ggpo callbacks structure to pass to start_session.
     GGPOSessionCallbacks cb = { 0 };
