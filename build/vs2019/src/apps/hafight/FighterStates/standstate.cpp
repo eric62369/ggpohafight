@@ -23,7 +23,7 @@ namespace Player {
     }
     void StandState::Update(BaseFighter& fighter) {
         FighterState::Update(fighter);
-        fighter.MoveFighter(0, 0);
+        fighter._rb.SetVelX(0);
     }
     void StandState::LoadState(int frame) {
         FighterState::LoadState(frame);

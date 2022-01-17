@@ -2,14 +2,7 @@
 #ifndef _RIGIDBODY_H_
 #define _RIGIDBODY_H_
 
-#include <boost/multiprecision/cpp_dec_float.hpp>
-using namespace boost::multiprecision;
-
 namespace Physics {
-
-    // defining type for fixed precision floating points
-    //typedef number<cpp_dec_float<1>> fight_float;
-
     class Rigidbody {
     public:
         Rigidbody(float* x, float* y, float* dx, float* dy);

@@ -26,7 +26,7 @@ namespace Player {
     }
     void ForwardWalkState::Update(BaseFighter& fighter) {
         FighterState::Update(fighter);
-        fighter.MoveFighter(_forwardWalkSpeed, 0);
+        fighter._rb.SetVelX(_forwardWalkSpeed);
     }
     void ForwardWalkState::LoadState(int frame) {
         FighterState::LoadState(frame);

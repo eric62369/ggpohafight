@@ -37,7 +37,7 @@ RaylibRenderer::~RaylibRenderer()
 void
 RaylibRenderer::Draw(GameState& gs, NonGameState& ngs) {
     BeginDrawing();
-        ClearBackground(RAYWHITE);
+        ClearBackground(BLACK);
 
         DrawText(_status, 10, 10, 10, DARKGRAY);
         if (_drawFPS) {
@@ -65,7 +65,12 @@ RaylibRenderer::Draw(GameState& gs, NonGameState& ngs) {
         DrawText(v3, 160, 10, 8, DARKGRAY);
 
         BeginMode2D(_camera);
-            DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, MAROON);
+            Color color = { 255, 100, 100, 100 };
+            if (gs._fighters[0].state == 1) {
+                color.r = (gs._fighters[0].frame * 10) % 255;
+            }
+
+            DrawCircleV({ (float)gs._fighters[0].position.x, (float)gs._fighters[0].position.y }, 12, color);
             DrawCircleV({ (float)gs._fighters[1].position.x, (float)gs._fighters[1].position.y }, 12, BLUE);
 
             DrawLine((int)_camera.target.x, (int) (-screenHeight * 0.1), (int)_camera.target.x, (int)(screenHeight * 0.1), GREEN);

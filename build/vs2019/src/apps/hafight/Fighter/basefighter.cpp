@@ -49,8 +49,4 @@ namespace Player {
         _gameStateData->state = _state->SaveState();
         _gameStateData->frame = _state->GetFrame();
     }
-    void BaseFighter::MoveFighter(float dx, float dy) {
-        _rb.SetVelX(dx);
-        _rb.SetVelY(dy);
-    }
 }

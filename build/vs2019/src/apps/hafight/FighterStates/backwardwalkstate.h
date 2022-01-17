@@ -3,6 +3,9 @@
 #define _BACKWARDWALKSTATE_H_
 
 #include "fighterstate.h"
+#include <vector>
+
+using namespace std;
 
 namespace Player {
     class BackwardWalkState : public FighterState {
@@ -16,6 +19,8 @@ namespace Player {
         int SaveState() override;
     protected:
         float _backwardWalkSpeed;
+        size_t _walkSpeedSize = 15;
+        vector<float> _walkSpeed;
     };
 }
 

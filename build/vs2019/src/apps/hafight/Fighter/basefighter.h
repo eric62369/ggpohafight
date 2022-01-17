@@ -17,14 +17,14 @@ namespace Player {
         void HandleInput(InputAction input);
         void Update();
         void LoadState(int stateEnum, int frame);
-        void MoveFighter(float dx, float dy);
+
+        Physics::Rigidbody _rb;
 
     private:
         void SaveState();
 
         Fighter* _gameStateData;
         FighterState* _state;
-        Physics::Rigidbody _rb;
     };
 }
 
