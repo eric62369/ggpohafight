@@ -206,6 +206,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
     <ClCompile Include="FighterStates\standstate.cpp" />
     <ClCompile Include="Fighter\basefighter.cpp" />
+    <ClCompile Include="InputReading\gamepadinput.cpp" />
     <ClCompile Include="MainGame\gamestate.cpp" />
     <ClCompile Include="MainGame\ggpo_perfmon.cpp" />
     <ClCompile Include="MainGame\hafight.cpp" />
@@ -222,6 +223,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="FighterStates\standstate.h" />
     <ClInclude Include="Fighter\basefighter.h" />
     <ClInclude Include="Fighter\inputinterpreter.h" />
+    <ClInclude Include="InputReading\gamepadinput.h" />
     <ClInclude Include="MainGame\gamestate.h" />
     <ClInclude Include="MainGame\ggpo_perfmon.h" />
     <ClInclude Include="MainGame\hafight.h" />
