@@ -36,7 +36,7 @@ ReadInputs()
     };
     int i, inputs = 0;
 
-    if (IsGamepadAvailable(0)) {
+    if (IsGamepadAvailable(0) && IsWindowFocused()) {
         for (i = 0; i < (int)(sizeof(padinputtable) / sizeof(padinputtable[0])); i++) {
             if (GetGamepadButtonPressed() == (padinputtable[i].key)) {
                 inputs |= padinputtable[i].input;
