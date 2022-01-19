@@ -177,8 +177,8 @@ ha_log_game_state(char* filename, unsigned char* buffer, int)
         fprintf(fp, "  num_fighters: %d.\n", gamestate->_num_fighters);
         for (int i = 0; i < gamestate->_num_fighters; i++) {
             Fighter* fighter = gamestate->_fighters + i;
-            fprintf(fp, "  fighter %d position:  %.4f, %.4f\n", i, fighter->position.x, fighter->position.y);
-            fprintf(fp, "  fighter %d velocity:  %.4f, %.4f\n", i, fighter->velocity.dx, fighter->velocity.dy);
+            fprintf(fp, "  fighter %d position:  %d, %d\n", i, fighter->position.x, fighter->position.y);
+            fprintf(fp, "  fighter %d velocity:  %d, %d\n", i, fighter->velocity.dx, fighter->velocity.dy);
         }
         fclose(fp);
     }

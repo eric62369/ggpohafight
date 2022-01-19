@@ -6,7 +6,7 @@
  * ReadInputs --
  *
  * Read the inputs for player 1 from the keyboard.  We never have to
- * worry about player 2.  GGPO will handle remapping his inputs
+ * worry about player 2.  GGPO will handle remapping their inputs
  * transparently.
  */
 int

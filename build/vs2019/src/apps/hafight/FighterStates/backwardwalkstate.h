@@ -18,9 +18,9 @@ namespace Player {
         void LoadState(int frame) override;
         int SaveState() override;
     protected:
-        float _backwardWalkSpeed;
+        int _backwardWalkSpeed;
         size_t _walkSpeedSize = 15;
-        vector<float> _walkSpeed;
+        vector<int> _walkSpeed;
     };
 }
 

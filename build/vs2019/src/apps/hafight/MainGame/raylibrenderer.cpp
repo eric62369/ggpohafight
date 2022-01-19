@@ -23,7 +23,7 @@ RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _camera.target = { 0.0f, 0.0f };
     _camera.offset = { screenWidth / 2.0f, screenHeight / 2.0f };
     _camera.rotation = 0.0f;
-    _camera.zoom = 1.0f;
+    _camera.zoom = 0.1f;
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     _drawFPS = true;                // Yes, display FPS
@@ -53,10 +53,10 @@ RaylibRenderer::Draw(GameState& gs, NonGameState& ngs) {
         DrawText(framecount_char, 10, 20, 8, DARKGRAY);
         DrawText(checksum_char, 10, 30, 8, DARKGRAY);
 
-        std::string tmp3 = std::to_string(gs._fighters[0].state);
+        std::string tmp3 = std::to_string(gs._fighters[0].velocity.dx);
         char const* v1 = tmp3.c_str();
         DrawText(v1, 10, 40, 8, DARKGRAY);
-        std::string tmp4 = std::to_string(gs._fighters[1].state);
+        std::string tmp4 = std::to_string(gs._fighters[1].velocity.dx);
         char const* v2 = tmp4.c_str();
         DrawText(v2, 10, 50, 8, DARKGRAY);
 

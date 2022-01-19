@@ -6,10 +6,10 @@
 namespace Player {
 
     BackwardWalkState::BackwardWalkState(int* frame) : FighterState(frame) {
-        _backwardWalkSpeed = 1.5656f;
+        _backwardWalkSpeed = 4;
         _walkSpeedSize = 15;
         for (int i = 0; i < _walkSpeedSize; i++) {
-            _walkSpeed.push_back(1 + 0.266f*i);
+            _walkSpeed.push_back(4 + i);
         }
     }
     BackwardWalkState::~BackwardWalkState() {}
@@ -30,11 +30,12 @@ namespace Player {
     }
     void BackwardWalkState::Update(BaseFighter& fighter) {
         FighterState::Update(fighter);
-        if (*_frame > 2 * _walkSpeedSize) {
-            fighter._rb.SetVelX(-_walkSpeed[_walkSpeedSize - 1]);
+        if (*_frame >= 2 * _walkSpeedSize) {
+            //fighter._rb.SetVelX(-_walkSpeed[_walkSpeedSize - 1]);
         }
         else {
             fighter._rb.SetVelX(-_walkSpeed[(int)(*_frame / 2)]);
+            printf("%d\n", -_walkSpeed[(int)(*_frame / 2)]);
         }
     }
     void BackwardWalkState::LoadState(int frame) {

@@ -5,35 +5,27 @@
 namespace Physics {
     class Rigidbody {
     public:
-        Rigidbody(float* x, float* y, float* dx, float* dy);
+        Rigidbody(int* x, int* y, int* dx, int* dy);
         virtual ~Rigidbody();
         virtual void Update();
-        virtual void ApplyForce(float x, float y);
-        virtual void SetVelX(float x);
-        virtual void SetVelY(float y);
+        virtual void ApplyForce(int x, int y);
+        virtual void SetVelX(int x);
+        virtual void SetVelY(int y);
+        virtual int GetVelX();
+        virtual int GetVelY();
 
     protected:
-        //virtual void Accel(float x, float y);
-        float* _x;
-        float* _y;
-        float* _dx;
-        float* _dy;
+        int* _x;
+        int* _y;
+        int* _dx;
+        int* _dy;
 
-        float _pboxWidth;
-        float _pboxHeight;
-        float _pboxXOffset;
-        float _pboxYOffset;
+        int _pboxWidth;
+        int _pboxHeight;
+        int _pboxXOffset;
+        int _pboxYOffset;
 
-        float _gravity;
-        /*fight_float _x;
-        fight_float _y;
-        fight_float _dx;
-        fight_float _dy;
-
-        fight_float _pboxWidth;
-        fight_float _pboxHeight;
-        fight_float _pboxXOffset;
-        fight_float _pboxYOffset;*/
+        int _gravity;
     };
 }
 

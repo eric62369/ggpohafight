@@ -6,7 +6,7 @@
 namespace Player {
 
     ForwardWalkState::ForwardWalkState(int* frame) : FighterState(frame) {
-        _forwardWalkSpeed = 2.5656f;
+        _forwardWalkSpeed = 5;
     }
     ForwardWalkState::~ForwardWalkState() {}
     FighterState* ForwardWalkState::HandleInput(BaseFighter& fighter, InputAction input) {
