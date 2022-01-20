@@ -2,10 +2,19 @@
 #include "raylib.h"
 #include <stdio.h>
 #include <string>
+//
+//#include <direct.h>
+//#include <iostream>
+//#include <filesystem>
 
 Camera2D _camera;
+Texture2D _curTexture;
 const int screenWidth = 800;
 const int screenHeight = 450;
+//
+//using std::cout; using std::cin;
+//using std::endl; using std::string;
+
 
 RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _status("None")
@@ -19,11 +28,18 @@ RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
         SetWindowPosition(0, 500);
     }
 
+
+    //char tmp[256];
+    //_getcwd(tmp, 256);
+    //cout << "Current working directory: " << tmp << endl;
+
+    LoadTextures();
+
     _camera = { 0 };
     _camera.target = { 0.0f, 0.0f };
     _camera.offset = { screenWidth / 2.0f, screenHeight / 2.0f };
     _camera.rotation = 0.0f;
-    _camera.zoom = 0.1f;
+    _camera.zoom = 1.0f;
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     _drawFPS = true;                // Yes, display FPS
@@ -32,6 +48,11 @@ RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
 RaylibRenderer::~RaylibRenderer()
 {
     CloseWindow();
+}
+
+void
+RaylibRenderer::LoadTextures() {
+    _curTexture = LoadTexture("C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/hafight/Assets/Sprites/SubaruExport/Idle/frame0000.png");
 }
 
 void
@@ -84,6 +105,7 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
     }
     
     DrawCircleV({ (float)ft.position.x, (float)ft.position.y }, 120, color);
+    DrawTexture(_curTexture, screenWidth / 2 - _curTexture.width / 2, screenHeight / 2 - _curTexture.height / 2, WHITE);
 }
 
 void

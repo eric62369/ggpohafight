@@ -247,6 +247,33 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ResourceCompile Include="MainGame\HAFight.rc" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0000.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0005.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0009.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0011.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0013.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0016.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0020.png" />
+    <Image Include="Assets\Sprites\SubaruExport\2B\frame0023.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0000.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0005.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0010.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0020.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0025.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0030.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0035.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0045.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Idle\frame0050.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0000.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0005.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0015.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0020.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0025.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0030.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0040.png" />
+    <Image Include="Assets\Sprites\SubaruExport\Run\frame0045.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
