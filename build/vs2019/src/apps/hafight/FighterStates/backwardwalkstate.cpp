@@ -35,7 +35,6 @@ namespace Player {
         }
         else {
             fighter._rb.SetVelX(-_walkSpeed[(int)(*_frame / 2)]);
-            printf("%d\n", -_walkSpeed[(int)(*_frame / 2)]);
         }
     }
     void BackwardWalkState::LoadState(int frame) {

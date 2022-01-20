@@ -21,6 +21,10 @@ public:
 
 	char           _status[1024];
 	bool		   _drawFPS;
+private:
+	void DrawDebug(GameState& gs, NonGameState& ngs);
+	void DrawGameState(GameState& gs);
+	void DrawFighter(Fighter& ft, int num);
 };
 
 #endif
