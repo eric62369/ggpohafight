@@ -2,44 +2,34 @@
 #include "raylib.h"
 #include <stdio.h>
 #include <string>
-//
-//#include <direct.h>
-//#include <iostream>
-//#include <filesystem>
+#include "../FighterStates/fighterstate.h"
 
 Camera2D _camera;
 Texture2D _curTexture;
-const int screenWidth = 800;
-const int screenHeight = 450;
-//
-//using std::cout; using std::cin;
-//using std::endl; using std::string;
+const int screenWidth = 960;
+const int screenHeight = 540;
 
 
 RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _status("None")
 {
+    //SetConfigFlags(FLAG_FULLSCREEN_MODE);
     InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input");
 
     if (ngs.player_num == 0) {
         SetWindowPosition(0, 20);
     }
     else {
-        SetWindowPosition(0, 500);
+        SetWindowPosition(0, 560);
     }
-
-
-    //char tmp[256];
-    //_getcwd(tmp, 256);
-    //cout << "Current working directory: " << tmp << endl;
 
     LoadTextures();
 
     _camera = { 0 };
-    _camera.target = { 0.0f, 0.0f };
+    _camera.target = { 0.0f, -480.0f };
     _camera.offset = { screenWidth / 2.0f, screenHeight / 2.0f };
     _camera.rotation = 0.0f;
-    _camera.zoom = 1.0f;
+    _camera.zoom = 0.4f;
 
     SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
     _drawFPS = true;                // Yes, display FPS
@@ -47,6 +37,7 @@ RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
 
 RaylibRenderer::~RaylibRenderer()
 {
+    UnloadTexture(_curTexture);
     CloseWindow();
 }
 
@@ -96,7 +87,7 @@ void
 RaylibRenderer::DrawFighter(Fighter& ft, int num) {
     Color color = { 255, 100, 100, 255 };
     if (num == 0) {
-        if (ft.state == 1) {
+        if (ft.state == Player::StateEnum::ForwardWalk) {
             color.r = (ft.frame * 10) % 255;
         }
     }
@@ -104,8 +95,8 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
         color = { 100, 100, 255, 255 };
     }
     
-    DrawCircleV({ (float)ft.position.x, (float)ft.position.y }, 120, color);
-    DrawTexture(_curTexture, screenWidth / 2 - _curTexture.width / 2, screenHeight / 2 - _curTexture.height / 2, WHITE);
+    DrawCircleV({ (float)ft.position.x, (float)ft.position.y }, 50, color);
+    DrawTexture(_curTexture, ft.position.x - _curTexture.width / 2, ft.position.y - _curTexture.height, WHITE);
 }
 
 void
