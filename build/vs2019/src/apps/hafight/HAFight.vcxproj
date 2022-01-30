@@ -201,6 +201,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation\animation.cpp" />
+    <ClCompile Include="Animation\animator.cpp" />
     <ClCompile Include="FighterStates\backwardwalkstate.cpp" />
     <ClCompile Include="FighterStates\fighterstate.cpp" />
     <ClCompile Include="FighterStates\forwardwalkstate.cpp" />
@@ -217,6 +219,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="Physics\rigidbody.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation\animation.h" />
+    <ClInclude Include="Animation\animator.h" />
     <ClInclude Include="FighterStates\backwardwalkstate.h" />
     <ClInclude Include="FighterStates\fighterstate.h" />
     <ClInclude Include="FighterStates\forwardwalkstate.h" />

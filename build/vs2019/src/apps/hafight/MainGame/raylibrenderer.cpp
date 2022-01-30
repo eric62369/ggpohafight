@@ -3,12 +3,15 @@
 #include <stdio.h>
 #include <string>
 #include "../FighterStates/fighterstate.h"
+#include "../Animation/animator.h"
+
+using namespace Player;
 
 Camera2D _camera;
-Texture2D _curTexture;
 const int screenWidth = 960;
 const int screenHeight = 540;
 
+Animator* anims[2];
 
 RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _status("None")
@@ -35,15 +38,23 @@ RaylibRenderer::RaylibRenderer(NonGameState& ngs) :
     _drawFPS = true;                // Yes, display FPS
 }
 
-RaylibRenderer::~RaylibRenderer()
-{
-    UnloadTexture(_curTexture);
+RaylibRenderer::~RaylibRenderer() {
+    for (int i = 0; i < 2; i++) {
+        if (anims[i] != nullptr) {
+            delete anims[i];
+        }
+    }
     CloseWindow();
 }
 
 void
 RaylibRenderer::LoadTextures() {
-    _curTexture = LoadTexture("C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/hafight/Assets/Sprites/SubaruExport/Idle/frame0000.png");
+    for (int i = 0; i < 2; i++) {
+        if (anims[i] != nullptr) {
+            delete anims[i];
+        }
+        anims[i] = new Animator("C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/hafight/Assets/Sprites/SubaruExport/");
+    }
 }
 
 void
@@ -96,7 +107,8 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
     }
     
     DrawCircleV({ (float)ft.position.x, (float)ft.position.y }, 50, color);
-    DrawTexture(_curTexture, ft.position.x - _curTexture.width / 2, ft.position.y - _curTexture.height, WHITE);
+    Texture2D curTexture = anims[num]->RenderFrame((StateEnum) ft.state, ft.frame);
+    DrawTexture(curTexture, ft.position.x - curTexture.width / 2, ft.position.y - curTexture.height, WHITE);
 }
 
 void

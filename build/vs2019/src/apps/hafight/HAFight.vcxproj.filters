@@ -23,6 +23,8 @@
     <ClCompile Include="FighterStates\standstate.cpp" />
     <ClCompile Include="Physics\rigidbody.cpp" />
     <ClCompile Include="InputReading\gamepadinput.cpp" />
+    <ClCompile Include="Animation\animation.cpp" />
+    <ClCompile Include="Animation\animator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame\gamestate.h" />
@@ -43,6 +45,8 @@
     <ClInclude Include="FighterStates\standstate.h" />
     <ClInclude Include="Physics\rigidbody.h" />
     <ClInclude Include="InputReading\gamepadinput.h" />
+    <ClInclude Include="Animation\animation.h" />
+    <ClInclude Include="Animation\animator.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MainGame\CMakeLists.txt" />
