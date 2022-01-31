@@ -14,6 +14,8 @@ namespace Player {
         Animator(const std::string dirPath);
         ~Animator();
         Texture2D RenderFrame(StateEnum state, int frame);
+        int GetCenterX(StateEnum state);
+        int GetCenterY(StateEnum state);
     private:
         void LoadAnimations(const std::string dirPath);
         void UnloadAnimations();

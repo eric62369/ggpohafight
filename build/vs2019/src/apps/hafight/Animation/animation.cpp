@@ -14,6 +14,18 @@ namespace Player {
         }
         return _frames[_timeline[frame % _timeline.size()]];
     }
+    void Animation::SetCenter(int x, int y) {
+        _centerX = x;
+        _centerY = y;
+    }
+
+    int Animation::GetCenterX() {
+        return _centerX;
+    }
+
+    int Animation::GetCenterY() {
+        return _centerY;
+    }
 
     // TODO: Excessive jank! Will be a good idea to design a better system later
     void Animation::LoadFrames(const std::string dirPath) {
@@ -53,6 +65,9 @@ namespace Player {
     }
 
     void Animation::UnloadFrames() {
-        LoadTexture("C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/src/apps/hafight/Assets/Sprites/SubaruExport/Idle/frame0000.png");
+        for (int i = 0; i < _frames.size(); i++) {
+            Texture2D tex = _frames[i];
+            UnloadTexture(tex);
+        }
     }
 }
