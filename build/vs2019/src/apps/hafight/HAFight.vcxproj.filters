@@ -25,6 +25,7 @@
     <ClCompile Include="InputReading\gamepadinput.cpp" />
     <ClCompile Include="Animation\animation.cpp" />
     <ClCompile Include="Animation\animator.cpp" />
+    <ClCompile Include="Physics\Hitbox\hitbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainGame\gamestate.h" />
@@ -47,6 +48,7 @@
     <ClInclude Include="InputReading\gamepadinput.h" />
     <ClInclude Include="Animation\animation.h" />
     <ClInclude Include="Animation\animator.h" />
+    <ClInclude Include="Physics\Hitbox\hitbox.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="MainGame\CMakeLists.txt" />

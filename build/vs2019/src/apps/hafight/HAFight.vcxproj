@@ -216,6 +216,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="MainGame\main.cpp" />
     <ClCompile Include="MainGame\raylibrenderer.cpp" />
     <ClCompile Include="MainGame\runner.cpp" />
+    <ClCompile Include="Physics\Hitbox\hitbox.cpp" />
     <ClCompile Include="Physics\rigidbody.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -238,6 +239,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="MainGame\Resource.h" />
     <ClInclude Include="MainGame\runner.h" />
     <ClInclude Include="MainGame\targetver.h" />
+    <ClInclude Include="Physics\Hitbox\hitbox.h" />
     <ClInclude Include="Physics\rigidbody.h" />
   </ItemGroup>
   <ItemGroup>
