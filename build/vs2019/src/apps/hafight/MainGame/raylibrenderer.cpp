@@ -105,12 +105,25 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
     else {
         color = { 100, 100, 255, 255 };
     }
-    
+
     DrawCircleV({ (float)ft.position.x, (float)ft.position.y }, 50, color);
-    Texture2D curTexture = anims[num]->RenderFrame((StateEnum) ft.state, ft.frame);
-    DrawTexture(curTexture,
-        ft.position.x - anims[num]->GetCenterX((StateEnum)ft.state),
-        ft.position.y - anims[num]->GetCenterY((StateEnum)ft.state),
+    Texture2D curTexture = anims[num]->RenderFrame((StateEnum)ft.state, ft.frame);
+
+    int playerSide = 1;
+    if (num == 1) {
+        playerSide = -1;
+    }
+    DrawTextureRec(curTexture,
+        Rectangle{
+            (float) 0,
+            (float) 0,
+            (float) curTexture.width * playerSide,
+            (float) curTexture.height
+        },
+        Vector2 {
+            (float) ft.position.x - anims[num]->GetCenterX((StateEnum)ft.state),
+            (float) ft.position.y - anims[num]->GetCenterY((StateEnum)ft.state)
+        },
         WHITE);
 }
 
