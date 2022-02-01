@@ -110,9 +110,12 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
     Texture2D curTexture = anims[num]->RenderFrame((StateEnum)ft.state, ft.frame);
 
     int playerSide = 1;
+    float xPosition = (float) anims[num]->GetCenterX((StateEnum)ft.state);
     if (num == 1) {
         playerSide = -1;
+        xPosition = curTexture.width - xPosition;
     }
+    
     DrawTextureRec(curTexture,
         Rectangle{
             (float) 0,
@@ -121,7 +124,7 @@ RaylibRenderer::DrawFighter(Fighter& ft, int num) {
             (float) curTexture.height
         },
         Vector2 {
-            (float) ft.position.x - anims[num]->GetCenterX((StateEnum)ft.state),
+            ft.position.x - xPosition,
             (float) ft.position.y - anims[num]->GetCenterY((StateEnum)ft.state)
         },
         WHITE);
