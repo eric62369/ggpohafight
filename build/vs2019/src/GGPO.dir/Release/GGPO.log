@@ -1,0 +1,19 @@
+﻿  Building Custom Rule C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/src/CMakeLists.txt
+  bitvector.cpp
+  game_input.cpp
+  input_queue.cpp
+  log.cpp
+  main.cpp
+  poll.cpp
+  sync.cpp
+  timesync.cpp
+  platform_windows.cpp
+  udp.cpp
+  udp_proto.cpp
+  p2p.cpp
+  spectator.cpp
+  synctest.cpp
+     Creating library C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/lib/x64/Release/GGPO.lib and object C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/build/vs2019/lib/x64/Release/GGPO.exp
+  Generating code
+  Finished generating code
+  GGPO.vcxproj -> C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\bin\x64\Release\GGPO.dll

@@ -1,5 +1,13 @@
 include(CMakeSources.cmake)
 
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+set(CMAKE_CXX_FLAGS "-Wall")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
+
 cmake_minimum_required(VERSION 3.11) # FetchContent is available in 3.11+
 project(example)
 
