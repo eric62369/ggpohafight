@@ -2,8 +2,8 @@
 #include "raylib.h"
 #include <stdio.h>
 #include <string>
-#include "FighterStates/fighterstate.h"
-#include "Animation/animator.h"
+#include "fighterstate.h"
+#include "animator.h"
 
 using namespace Player;
 

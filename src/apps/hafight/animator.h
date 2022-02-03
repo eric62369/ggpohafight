@@ -4,7 +4,7 @@
 
 #include <string>
 #include <vector>
-#include "../FighterStates/fighterstate.h"
+#include "fighterstate.h"
 #include "animation.h"
 #include "raylib.h"
 

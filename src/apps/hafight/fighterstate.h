@@ -2,8 +2,8 @@
 #ifndef _FIGHTERSTATES_H_
 #define _FIGHTERSTATES_H_
 
-#include "../Fighter/basefighter.h"
-#include "../Fighter/inputinterpreter.h"
+#include "basefighter.h"
+#include "inputinterpreter.h"
 
 namespace Player {
 

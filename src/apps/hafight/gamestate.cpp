@@ -4,8 +4,8 @@
 #include "inputreader.h"
 #include "gamestate.h"
 
-#include "Fighter/basefighter.h"
-#include "Fighter/inputinterpreter.h"
+#include "basefighter.h"
+#include "inputinterpreter.h"
 
 using namespace Player;
 

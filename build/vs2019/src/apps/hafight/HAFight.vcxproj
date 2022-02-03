@@ -181,45 +181,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animation.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animator.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\renderer.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Resource.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\targetver.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.h" />
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.h" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animation.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animator.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\main.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp" />
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp" />
-    <ResourceCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\HAFight.rc" />
+    <None Include="..\..\..\..\..\src\apps\hafight\CMakeSources.cmake" />
+    <None Include="..\..\..\..\..\src\apps\hafight\cmake_install.cmake" />
+    <None Include="..\..\..\..\..\src\apps\hafight\HAFight.aps" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\build\vs2019\ZERO_CHECK.vcxproj">
@@ -242,13 +206,53 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\src\apps\hafight\CMakeSources.cmake" />
-    <None Include="..\..\..\..\..\src\apps\hafight\cmake_install.cmake" />
-    <None Include="..\..\..\..\..\src\apps\hafight\HAFight.aps" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\animation.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\animator.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\backwardwalkstate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\basefighter.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\fighterstate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\forwardwalkstate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\gamepadinput.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\gamestate.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\ggpo_perfmon.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\hafight.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\hitbox.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\inputreader.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\main.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\raylibrenderer.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\rigidbody.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\standstate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\animation.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\animator.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\backwardwalkstate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\basefighter.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\fighterstate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\forwardwalkstate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\gamepadinput.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\gamestate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\ggpo_perfmon.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\hafight.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\hitbox.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\inputinterpreter.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\inputreader.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\nongamestate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\raylibrenderer.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\renderer.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Resource.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\rigidbody.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\standstate.h" />
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\src\apps\hafight\HAFight.ico" />
     <Image Include="..\..\..\..\..\src\apps\hafight\small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\..\..\..\..\src\apps\hafight\HAFight.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

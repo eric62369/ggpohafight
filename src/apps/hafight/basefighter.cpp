@@ -1,8 +1,8 @@
 #include "basefighter.h"
-#include "../Physics/rigidbody.h"
-#include "../FighterStates/forwardwalkstate.h"
-#include "../FighterStates/standstate.h"
-#include "../FighterStates/backwardwalkstate.h"
+#include "rigidbody.h"
+#include "forwardwalkstate.h"
+#include "standstate.h"
+#include "backwardwalkstate.h"
 
 namespace Player {
     BaseFighter::BaseFighter(Fighter* gameStateData) :

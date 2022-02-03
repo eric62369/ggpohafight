@@ -2,7 +2,7 @@
 #ifndef _INPUTINTERPRETER_H_
 #define _INPUTINTERPRETER_H_
 
-#include "../inputreader.h"
+#include "inputreader.h"
 
 namespace Player {
     enum class InputAction {

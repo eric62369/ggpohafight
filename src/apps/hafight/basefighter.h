@@ -3,9 +3,9 @@
 #define _BASEFIGHTER_H_
 
 #include "inputinterpreter.h"
-#include "../FighterStates/fighterstate.h"
-#include "../gamestate.h"
-#include "../Physics/rigidbody.h"
+#include "fighterstate.h"
+#include "gamestate.h"
+#include "rigidbody.h"
 
 namespace Player {
     class FighterState;
