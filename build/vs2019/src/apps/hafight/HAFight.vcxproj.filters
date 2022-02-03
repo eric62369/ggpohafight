@@ -1,91 +1,122 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animation.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animator.cpp">
+      <Filter>Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.cpp">
+      <Filter>Fighter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.cpp">
+      <Filter>FighterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.cpp">
+      <Filter>FighterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.cpp">
+      <Filter>FighterStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.cpp">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.cpp">
-      <Filter>
-      </Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\main.cpp">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.cpp">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.cpp">
+      <Filter>Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.cpp">
+      <Filter>Physics</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.cpp">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\main.cpp">
+      <Filter>MainGame</Filter>
     </ClCompile>
     <ClCompile Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.cpp">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animation.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Animation\animator.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.cpp" />
-    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp" />
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\runner.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.cpp">
+      <Filter>MainGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animation.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animator.h">
+      <Filter>Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.h">
+      <Filter>Fighter</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.h">
+      <Filter>FighterStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.h">
+      <Filter>FighterStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.h">
+      <Filter>FighterStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\gamestate.h">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\ggpo_perfmon.h">
-      <Filter>
-      </Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h">
-      <Filter>
-      </Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\renderer.h">
-      <Filter>
-      </Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Resource.h">
-      <Filter>
-      </Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\targetver.h">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\hafight.h">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.h">
+      <Filter>Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\targetver.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h">
+      <Filter>MainGame</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\inputreader.h">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\nongamestate.h">
+      <Filter>MainGame</Filter>
     </ClInclude>
     <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\raylibrenderer.h">
-      <Filter>
-      </Filter>
+      <Filter>MainGame</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\backwardwalkstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\fighterstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\forwardwalkstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\basefighter.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Fighter\inputinterpreter.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animation.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Animation\animator.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\InputReading\gamepadinput.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\rigidbody.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\Physics\Hitbox\hitbox.h" />
-    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h" />
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\renderer.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\Resource.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\runner.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\src\apps\hafight\FighterStates\standstate.h">
+      <Filter>MainGame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\Eric Yoon\Documents\Git\ggpoHaFight\src\apps\hafight\CMakeLists.txt" />
@@ -99,6 +130,21 @@
   <ItemGroup>
     <Filter Include=" ">
       <UniqueIdentifier>{0AB2DF47-AA50-3EEC-9A5B-E182D9BD1ABB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Animation">
+      <UniqueIdentifier>{5ab80472-49a9-4ecc-b643-52cdb7570b1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fighter">
+      <UniqueIdentifier>{0fc25ccc-76ac-46c8-8867-0f922d7a1317}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FighterStates">
+      <UniqueIdentifier>{76d597b9-f475-45fe-bccd-7d89bd8aa93e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MainGame">
+      <UniqueIdentifier>{2e72be60-b0ec-4e8a-9510-4f0953ee79c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Physics">
+      <UniqueIdentifier>{a6b52425-41f0-486f-ae69-01e4b9948991}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

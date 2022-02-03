@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+2 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "C:/Users/Eric Yoon/Documents/Git/ggpoHaFight/out/build/x64-Debug/_deps/raylib-build/raylib/CMakeFiles/raylib.dir/embed.manifest"

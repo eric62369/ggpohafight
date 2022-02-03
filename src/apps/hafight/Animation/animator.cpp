@@ -24,12 +24,12 @@ namespace Player {
         animation->SetCenter(231, 846);
         _animations.push_back(animation);
 
-        animation = new Animation(dirPath + "Run/");
-        animation->SetCenter(356, 680);
-        _animations.push_back(animation);
-
         animation = new Animation(dirPath + "2B/");
         animation->SetCenter(606, 430);
+        _animations.push_back(animation);
+
+        animation = new Animation(dirPath + "Run/");
+        animation->SetCenter(356, 680);
         _animations.push_back(animation);
     }
     void Animator::UnloadAnimations() {
