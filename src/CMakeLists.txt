@@ -1,5 +1,3 @@
-set(CMAKE_BUILD_TYPE Debug)
-
 include(CMakeSources.cmake)
 
 add_library(GGPO
