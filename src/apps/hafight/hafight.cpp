@@ -168,7 +168,6 @@ ha_log_game_state(char* filename, unsigned char* buffer, int)
 {
     FILE* fp = nullptr;
     fopen_s(&fp, filename, "w");
-    printf("%s\n", filename);
     if (fp) {
         GameState* gamestate = (GameState*)buffer;
         fprintf(fp, "GameState object.\n");
