@@ -93,7 +93,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
         HAFight_Init(local_port, local_player, num_players, players, num_spectators);
     }
-    RunMainLoop();
+    RunMainLoop(timeGetTime);
     WSACleanup();
     return 0;
 }

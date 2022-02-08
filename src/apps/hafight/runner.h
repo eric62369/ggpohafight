@@ -8,6 +8,6 @@
  * Interface to the HAFight application.
  *
  */
-int RunMainLoop();
+int RunMainLoop(unsigned long (*getTime)(void));
 
 #endif
